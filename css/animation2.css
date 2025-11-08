@@ -1,0 +1,70 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-color: rgba(0, 0, 0, 0.663);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+.box{
+  width: 300px;
+  border: 3px transparent solid;
+  background: linear-gradient(to right, #FFD54F, #FFB74D, #FF8A65);
+  position: relative;
+  padding: 8px;
+  display: flex;
+  align-items: flex-end;
+  height: 40vh;
+  overflow: hidden;
+  color: white;
+  box-shadow: 0 0 15px #fff700, 
+              0 0 30px #fff700, 
+              0 0 45px #ffea00, 
+              0 0 60px #ffd000;
+  border-radius: 7px;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+.img{
+  width: 150px;
+  height: 150px;
+  top: 10px;
+  left: 40px;
+  position: absolute;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: all 0.6s;
+}
+.para{
+  top:10px;
+  color: white;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+}
+span{
+  color:rgba(255, 68, 0, 0.856);
+  font-family: monospace;
+  font-weight:1000;
+  font-style: italic;
+  font-size:15px;
+  letter-spacing: -0.2px;
+}
+.img:hover{
+  transform: translate(-20px,-20px) scale(1.4) rotate(-20deg);
+}
+@keyframes glow{
+  from{
+    box-shadow: 
+          0 0 10px #fff700, 
+          0 0 20px #fff700;
+  }
+  to{
+     box-shadow: 
+          0 0 20px #fff700, 
+          0 0 40px #ffea00, 
+          0 0 60px #ffd000;
+  }
+}

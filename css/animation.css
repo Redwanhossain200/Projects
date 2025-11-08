@@ -1,0 +1,62 @@
+.box-container{
+  width: 600px;
+  height: 600px;
+  /* border: 2px solid black; */
+  border-top: 3px solid #b00085;
+  border-bottom: 3px solid 	#ce009b;
+  border-left: 3px solid #740058;
+  border-right: 3px solid #8d006b;
+  border-radius: 12px;
+  background-image: url('../Image/1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+  margin-top: 50px;
+  box-shadow: 0px 0px 10px 5px #A00079;
+  position: relative;
+}
+.box{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border-radius: 10px;
+  border: 2px solid white;
+  top: 0px;
+  left: 0px;
+  background-color: #A00079;
+  opacity: 0.3;
+  animation-name: box;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; 
+  /* animation-fill-mode: both; */
+  animation-direction: alternate-reverse;
+  animation-delay: 1s;
+}
+@keyframes box{
+  0%{
+    top: 0px;
+    left: 0px;
+    background-color: #A00079;
+  }
+  25%{
+    top: 0px;
+    left: 400px;
+    background-color: #A00079;
+  }
+  50%{
+    top: 400px;
+    left: 400px;
+    background-color: #A00079;
+  }
+  75%{
+    top: 400px;
+    left: 0px;
+    background-color: #A00079;
+  }
+  100%{
+    top: 0px;
+    left: 0px;
+    background-color: #A00079;
+  }      
+}

@@ -1,0 +1,153 @@
+.main{
+  width: 1000px;
+  height: 540px;
+  background-color: coral; 
+}
+.row1{
+  width: 1000px;
+  height: 50px;
+  background-color: aqua;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: xx-large;
+  font-style:italic;
+  color:black;
+}
+.row2{
+  width: 1000px;
+  height: 40px;
+  text-align: center;
+  font-size:x-large;
+}
+.col1{
+  width: 200px;
+  height: 40px;
+  float: left;
+  background-color: yellow;
+}
+.col2{
+  width: 200px;
+  height: 40px;
+  float: left;
+  background-color:violet;
+}
+.col3{
+  width: 200px;
+  height: 40px;
+  float: left;
+  background-color:turquoise;
+}
+.col4{
+  width: 200px;
+  height: 40px;
+  float: left;
+  background-color:chocolate;
+}
+.col5{
+  width: 200px;
+  height: 40px;
+  float: left;
+  background-color:crimson;
+}
+.row3-col1{
+  width: 1000px;
+  height: 200px;
+  background-color: yellowgreen;
+  text-align: center;
+}
+.row3-1{
+  width: 250px;
+  height: 200px;
+  background-color: sienna;
+  float: left;
+}
+.col-1{
+  width: 250px;
+  height: 40px;
+  float: left;
+  background-color:dimgray;
+}
+.col-2{
+  width: 250px;
+  height: 40px;
+  float: left;
+  background-color:darkgrey;
+}
+.col-3{
+  width: 250px;
+  height: 40px;
+  float: left;
+  background-color:skyblue;
+}
+.col-4{
+  width: 250px;
+  height: 40px;
+  float: left;
+  background-color:seagreen;
+}
+.col-5{
+  width: 250px;
+  height: 40px;
+  background-color:darkseagreen;
+}
+.row4{
+  width: 1000px;
+  height: 120px;
+  background-color: darksalmon;
+  font-size:50px;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+  text-align: center;
+  text-transform: capitalize;
+}
+.row5{
+  width: 1000px;
+  height: 100px;
+  background-color: honeydew;
+}
+.row5-col1{
+  width: 333px;
+  height: 100px;
+  float: left;
+}
+.row5-col2{
+  width: 333px;
+  height: 100px;
+  float: left;
+}
+.row5-col3{
+  width: 333px;
+  height: 100px;
+  float: left;
+}
+.row6{
+  width: 1000px;
+  height: 50px;
+  background-color: darkorange;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: x-large;
+  font-weight: bolder;
+  font-style:italic;
+}
+.nai{
+  width: 1000px;
+  height: 62px;
+  background-color: aqua;
+  text-transform: capitalize;
+  font: size 20px;
+  color: black;
+}
+.bg {
+  width: 1000px;
+  height: 800px;
+  border: 2px solid black;
+  padding: 13px;
+  font-size: x-large;
+  background-image: url('1.webp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+

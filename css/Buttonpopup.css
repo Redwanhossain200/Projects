@@ -1,0 +1,30 @@
+.box{
+  width: 300px;
+  height: 200px;
+  border-radius: 3px;
+  border-top: 3px solid #740058;
+  border-bottom:3px solid #8d006b;
+  border-left:3px solid #b00085;
+  border-right: 3px solid #ce009b;
+  box-shadow: 0px 0px 8px 5px #A00079;
+  margin: auto;
+  margin-top: 50px;
+  position: relative;
+}
+.button{
+  width: 100%;
+  font-size: 25px;
+  background-color: rgb(71, 69, 69);
+  color: white;
+  position: absolute;
+  left: 0px;
+  bottom: -40px;
+  border: 2px solid brown;
+  border-radius: 2px solid;
+  opacity: 0;
+  transition: 1.5s;
+}
+.box:hover .button{
+  bottom: 0px;
+  opacity: 1;
+}
