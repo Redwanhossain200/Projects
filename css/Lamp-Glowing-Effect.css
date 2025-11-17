@@ -1,0 +1,39 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#000;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.lamp{
+  position:relative;
+}
+
+.bulb{
+  width:60px;
+  height:60px;
+  background:#f8e839; 
+  border-radius:50%;
+  position:relative;
+  z-index:2;
+}
+
+/* glow */
+.glow{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:200px;
+  height:200px;
+  background:radial-gradient(circle, rgba(255,255,150,0.8) 0%, rgba(255,255,150,0) 70%);
+  transform:translate(-50%, -50%);
+  filter:blur(30px); 
+  z-index:1;
+}
