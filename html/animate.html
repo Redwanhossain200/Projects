@@ -10,9 +10,17 @@
   <link rel="shortcut icon" href="../Images/download.png" type="image/x-icon">
   <title>Web Mastery | Interactive Learning</title>
   <link rel="stylesheet" href="../css/animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/social-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <!-- Particle Background -->
+  <div id="particleContainer" class="particle-container"></div>
+
   <!-- Progress bar (top) -->
   <div class="progress-container" aria-hidden="false">
     <div id="progressBar" class="progress-bar"></div>
@@ -20,8 +28,13 @@
 
   <!-- UI Elements Container -->
   <div class="ui-container">
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+      <span class="toggle-icon">🌙</span>
+    </button>
+
     <!-- Progress counter -->
-    <div class="progress-counter" id="progressCounter">1 / 8</div>
+    <div class="progress-counter" id="progressCounter">1 / 9</div>
 
     <!-- Keyboard help -->
     <div class="keyboard-help" id="keyboardHelp">Use ← → or swipe to navigate</div>
@@ -31,6 +44,9 @@
 
     <!-- Navigation dots (generated dynamically by JS) -->
     <div class="nav-dots" role="tablist" aria-label="Slide navigation"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">⬆️</button>
   </div>
 
   <main class="content-wrapper">
@@ -52,6 +68,19 @@
             assistive technologies rely on good markup to deliver content correctly.</p>
           <p class="slide-text">Practice by building simple pages and progressively enhance them with CSS for layout
             and JavaScript for interactivity.</p>
+
+          <div class="code-example">
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;Welcome to HTML&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
         </div>
 
         <div class="slide-actions">
@@ -76,6 +105,21 @@
             units so designs adapt across devices and screen sizes.</p>
           <p class="slide-text">Organize styles with variables, reusable classes, or component-based approaches to
             maintain consistency in larger projects.</p>
+
+          <div class="code-example">
+            <pre><code>.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}</code></pre>
+          </div>
         </div>
 
         <div class="slide-actions">
@@ -104,6 +148,19 @@
           <p class="slide-text">Start small: manipulate the DOM, fetch data from APIs, and progressively enhance
             features as
             you gain confidence.</p>
+
+          <div class="code-example">
+            <pre><code>// Event handling
+document.addEventListener('click', (e) => {
+  console.log('Clicked!', e.target);
+});
+
+// DOM manipulation
+const btn = document.getElementById('myBtn');
+btn.addEventListener('click', () => {
+  btn.style.background = 'blue';
+});</code></pre>
+          </div>
         </div>
 
         <div class="slide-actions">
@@ -127,6 +184,21 @@
             DOM. Use components to split UI into independent, reusable pieces that are easy to reason about.</p>
           <p class="slide-text">Learn JSX syntax, props, and state. Practice hooks like useState and useEffect to
             handle stateful logic and side effects in modern React apps.</p>
+
+          <div class="code-example">
+            <pre><code>function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() => setCount(count + 1)}&gt;
+        Increment
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+          </div>
         </div>
 
         <div class="slide-actions">
@@ -141,7 +213,7 @@
       <div class="slide-content">
         <div class="slide-header">
           <span class="slide-icon">🎨</span>
-          <h1 class="slide-title typewriter">TailwindCSS Utility-First Styling</h1>
+          <h1 class="slide-title typewriter">TailwindCSS Utility First Styling</h1>
         </div>
 
         <div class="slide-body">
@@ -150,6 +222,19 @@
             small, composable classes. This speeds up prototyping and keeps classes consistent across a project.</p>
           <p class="slide-text">Customize Tailwind's configuration to create design tokens and scale a consistent visual
             language across your applications.</p>
+
+          <div class="code-example">
+            <pre><code>&lt;div class="flex items-center justify-center 
+           gap-4 p-6 bg-blue-500 rounded-lg"&gt;
+  &lt;h1 class="text-2xl font-bold text-white"&gt;
+    Hello
+  &lt;/h1&gt;
+  &lt;button class="px-4 py-2 bg-orange-500 
+             hover:bg-orange-600 rounded"&gt;
+    Click me
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          </div>
         </div>
 
         <div class="slide-actions">
@@ -173,6 +258,21 @@
             you build interfaces quickly and consistently across browsers and devices.</p>
           <p class="slide-text">Use its theming and customization options to match your project's visual style while
             keeping development speed high.</p>
+
+          <div class="code-example">
+            <pre><code>&lt;link rel="stylesheet" 
+  href="bootstrap.min.css"&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-6"&gt;
+      &lt;button class="btn btn-primary"&gt;
+        Primary Button
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
         </div>
 
         <div class="slide-actions">
@@ -196,6 +296,23 @@
             modern web services. Its schemaless model is ideal for evolving data shapes.</p>
           <p class="slide-text">Learn CRUD operations, indexing, and aggregation pipelines. Consider using MongoDB Atlas
             for managed hosting and to simplify deployment and scaling.</p>
+
+          <div class="code-example">
+            <pre><code>// Connect to MongoDB
+const client = new MongoClient(uri);
+
+// Insert document
+db.users.insertOne({
+  name: "John",
+  email: "john@example.com",
+  role: "developer"
+});
+
+// Query data
+const users = db.users.find(
+  { role: "developer" }
+);</code></pre>
+          </div>
         </div>
 
         <div class="slide-actions">
@@ -205,8 +322,36 @@
       </div>
     </section>
 
-    <!-- Slide 8: Final / Congrats -->
+    <!-- Slide 8: Certificate -->
     <section class="slide-card" data-index="7">
+      <div class="slide-content">
+        <div class="slide-header">
+          <span class="slide-icon">🎓</span>
+          <h1 class="slide-title typewriter">Get Your Certificate!</h1>
+        </div>
+
+        <div class="slide-body">
+          <h2 class="slide-subtitle">Congratulations! You've Mastered the Essentials</h2>
+          <p class="slide-text">You've successfully completed this comprehensive web development course! You now
+            understand the fundamentals of HTML, CSS, JavaScript, and modern frameworks.</p>
+          <p class="slide-text">Generate your certificate to showcase your achievement. Enter your name and download
+            your personalized certificate.</p>
+
+          <div class="certificate-form">
+            <input type="text" id="certificateName" placeholder="Enter your full name" class="cert-input">
+            <button class="btn btn-primary" id="generateCert">Generate Certificate 📜</button>
+          </div>
+        </div>
+
+        <div class="slide-actions">
+          <button class="btn btn-secondary" data-action="prev">← Prev</button>
+          <button class="btn btn-primary" data-action="next">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: Final / Congrats -->
+    <section class="slide-card" data-index="8">
       <div class="slide-content">
         <div class="slide-header">
           <span class="slide-icon">🚀</span>
@@ -232,7 +377,39 @@
 
   </main>
 
-  <script src="../js/animate.js"></script>
+  <!-- Certificate Modal -->
+  <div id="certificateModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <canvas id="certificateCanvas"></canvas>
+      <button class="btn btn-primary" id="downloadCert">Download Certificate ⬇️</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>💡 Made by Redwan Hossain</h3>
+        <p>Web Development Learning Hub</p>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Me</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/" target="_blank"> <i class="fa-brands fa-facebook-f"></i> </a>
+          <a href="" target="_blank"> <i class="fa-brands fa-instagram"></i> </a>
+          <a href="https://www.youtube.com/" target="_blank"> <i class="fa-brands fa-youtube"></i> </a>
+
+        </div>
+      </div>
+      <div class="footer-section">
+        <p>&copy; 2025 All Rights Reserved.</p>
+        <p class="footer-small">Built with ❤️ using HTML, CSS & JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
+<script src="../js/animate.js"></script>
 
 </html>

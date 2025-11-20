@@ -1,3 +1,15 @@
+/* animate.css file-er shurute add korun */
+:root {
+  --primary-color: #3498db;
+  /* Button and active dot color */
+  --secondary-color: #1abc9c;
+  /* Secondary button color */
+  --bg-dark: #0a0a1a;
+  /* Main dark background color */
+  --text-light: #e0e0e0;
+  /* Default text color */
+}
+
 /* ===== RESET & BASE STYLES ===== */
 * {
   margin: 0;
@@ -11,15 +23,323 @@ html {
 }
 
 body {
+  /* Existing properties... */
+  font-family: 'Inter', sans-serif;
+  /* Notun font apply kora holo */
+}
+
+body {
   background: linear-gradient(135deg, #002850 0%, #020813 50%, #FF5A00 100%);
   background-attachment: fixed;
   min-height: 100vh;
   color: whitesmoke;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* ===== PROGRESS BAR ===== */
+/* ===== PARTICLE ANIMATION ===== */
+.particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-100vh) translateX(var(--tx));
+    opacity: 0;
+  }
+}
+
+/* ===== DARK MODE ===== */
+body.dark-mode {
+  background: linear-gradient(135deg, #0a0e27 0%, #050709 50%, #2d1810 100%);
+}
+
+body.dark-mode .slide-content {
+  background: linear-gradient(135deg, rgba(15, 23, 50, 0.5), rgba(60, 30, 10, 0.2));
+  box-shadow:
+    0 0 30px rgba(0, 80, 200, 0.2),
+    0 0 30px rgba(255, 90, 0, 0.2),
+    0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .footer {
+  background: linear-gradient(135deg, rgba(10, 15, 40, 0.98), rgba(20, 35, 70, 0.98));
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  background: linear-gradient(135deg, rgba(0, 80, 200, 0.3), rgba(255, 90, 0, 0.3));
+  border: 2px solid #FF5A00;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1001;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.2) rotate(20deg);
+  background: linear-gradient(135deg, rgba(0, 80, 200, 0.6), rgba(255, 90, 0, 0.6));
+  box-shadow: 0 0 20px rgba(255, 90, 0, 0.8);
+}
+
+.toggle-icon {
+  display: inline-block;
+  transition: transform 0.6s ease;
+}
+
+body.dark-mode .toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* ===== LIGHT MODE ===== */
+body.light-mode {
+  background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 50%, #fff7f0 100%);
+  color: #0b2336;
+}
+
+body.light-mode .slide-content {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(250, 245, 240, 0.8));
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .slide-title {
+  color: #0b2336;
+  text-shadow: none;
+  border-right: 3px solid #0050C8;
+}
+
+body.light-mode .slide-text,
+body.light-mode .slide-subtitle {
+  color: #1b2b3a;
+}
+
+body.light-mode .footer {
+  background: linear-gradient(135deg, #f5f7fb, #eef4ff);
+  color: #0b2336;
+  border-top-color: #0050C8;
+}
+
+body.light-mode .code-example {
+  background: linear-gradient(135deg, rgba(250, 250, 250, 0.9), rgba(245, 250, 255, 0.9));
+}
+
+body.light-mode .code-example pre {
+  color: #004466;
+  text-shadow: none;
+}
+
+/* Toggle icon rotation for light theme */
+body.light-mode .toggle-icon {
+  transform: rotate(0deg);
+}
+
+/* ===== CODE EXAMPLES ===== */
+.code-example {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 50, 100, 0.3));
+  border-left: 4px solid #FF5A00;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 20px;
+  overflow-x: auto;
+  animation: slideInCode 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.code-example pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #0ffe00;
+  text-shadow: 0 0 5px rgba(15, 254, 0, 0.3);
+}
+
+.code-example code {
+  line-height: 1.6;
+}
+
+@keyframes slideInCode {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== BACK TO TOP BUTTON ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 300px;
+  right: 30px;
+  background: linear-gradient(135deg, rgba(0, 80, 200, 0.8), rgba(255, 90, 0, 0.8));
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.show {
+  display: flex;
+  opacity: 1;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px) scale(1.15);
+  box-shadow: 0 0 25px rgba(0, 80, 200, 0.8), 0 0 25px rgba(255, 90, 0, 0.8);
+}
+
+/* ===== CERTIFICATE FORM ===== */
+.certificate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(0, 80, 200, 0.1);
+  border-radius: 10px;
+  border: 2px dashed #FF5A00;
+}
+
+.cert-input {
+  padding: 12px 15px;
+  border: 2px solid #FF5A00;
+  border-radius: 8px;
+  background: rgba(0, 20, 50, 0.5);
+  color: whitesmoke;
+  font-size: 16px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.cert-input:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(255, 90, 0, 0.6);
+  background: rgba(0, 20, 50, 0.7);
+}
+
+.cert-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== CERTIFICATE MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, rgba(0, 20, 50, 0.95), rgba(0, 50, 100, 0.95));
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px solid #FF5A00;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 0 50px rgba(255, 90, 0, 0.5);
+  animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.close {
+  color: #FF5A00;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  color: white;
+  transform: rotate(90deg);
+}
+
+#certificateCanvas {
+  display: block;
+  margin: 20px auto;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(16, 24, 40, 0.08);
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  max-width: 1100px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0050C8, #FF5A00);
+  width: 0%;
+  transition: width 0.1s ease;
+  z-index: 10000;
+}
+
 .progress-container {
   position: fixed;
   top: 0;
@@ -118,6 +438,21 @@ body {
   z-index: 1000;
 }
 
+/* animate.css */
+.nav-dots .dot.active {
+  background-color: var(--primary-color, #007bff);
+  /* ba apnar main color */
+  box-shadow: 0 0 10px var(--primary-color, #007bff), 0 0 20px rgba(0, 123, 255, 0.5);
+  /* Glow effect */
+  transform: scale(1.2);
+  /* halka boro hobe */
+  transition: all 0.2s ease;
+}
+
+.nav-dots {
+  transition: bottom 300ms ease, opacity 200ms ease, transform 200ms ease;
+}
+
 .dot {
   width: 12px;
   height: 12px;
@@ -150,7 +485,8 @@ body {
   position: relative;
   width: 100%;
   padding-top: 60px;
-  padding-bottom: 80px;
+  /* Ensure final slide stays above the footer (Option A) */
+  padding-bottom: 360px;
 }
 
 /* Slide Card */
@@ -220,6 +556,85 @@ body {
 }
 
 /* Slide Body */
+
+/* animate.css file-e `slide-card` selector er moddhe add korun */
+
+.slide-card {
+  /* Existing properties... */
+
+  /* 🧊 GLASSMORHPISM Effect */
+  background: rgba(255, 255, 255, 0.05);
+  /* Transparent white */
+  backdrop-filter: blur(8px);
+  /* Frosted Glass effect (Most important for the look) */
+  -webkit-backdrop-filter: blur(8px);
+
+  /* 💡 NEUMORPHIC Shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Halka border */
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    /* Deep shadow */
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  /* Internal light for depth */
+
+  border-radius: 18px;
+  /* Corner guli aro smooth kora holo */
+  padding: 30px;
+}
+
+/* animate.css file-e add korun */
+
+.slide-title {
+  /* Existing properties... */
+  font-size: 2.5rem;
+  color: white;
+  /* Title er rong dhop-dhobe shada korun */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  /* Halka shadow dilam */
+}
+
+.slide-subtitle {
+  /* Existing properties... */
+  color: #b0c7ff;
+  /* Halka blueish-white (Contrast baranor jonne) */
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+/* animate.css file-e add korun */
+
+.slide-icon {
+  /* Existing properties... */
+  font-size: 3rem;
+  padding: 10px;
+  /* Icon-er charpashe halka background/glow add kora */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.slide-text {
+  /* Existing properties... */
+  color: #e0e0e0;
+  /* Pathok-er jonno shohaj rong */
+  line-height: 1.6;
+}
+
+/* Notun slide jokhonto hobe */
+.slide-card.entering {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideIn .5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .slide-body {
   margin-bottom: 30px;
 }
@@ -334,6 +749,16 @@ body {
 .btn:focus {
   outline: none;
   box-shadow: 0 0 0 4px rgba(0, 80, 200, 0.5);
+}
+
+/* animate.css */
+.btn:hover {
+  transform: translateY(-2px);
+  /* Button halka upore uthlo */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  /* Shadow */
+  filter: brightness(1.1);
+  /* Halka ujjal hobe */
 }
 
 /* ===== ANIMATIONS ===== */
@@ -473,6 +898,60 @@ body {
   }
 }
 
+/* ===== ENHANCED SLIDE ANIMATIONS ===== */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+.slide-subtitle {
+  animation: slideInLeft 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
 /* Active Glow Animation */
 .active-glow {
   animation: ultraGlow 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
@@ -484,6 +963,80 @@ body {
   background: rgba(0, 80, 200, 0.8);
   color: #FF5A00;
   text-shadow: 0 0 10px rgba(0, 80, 200, 0.4);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: linear-gradient(135deg, rgba(0, 20, 50, 0.95), rgba(0, 50, 100, 0.95));
+  border-top: 2px solid #FF5A00;
+  padding: 40px 20px;
+  margin-top: 60px;
+  color: whitesmoke;
+  font-size: 14px;
+  position: relative;
+  z-index: 100;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #FF5A00;
+  text-shadow: 0 0 10px rgba(255, 90, 0, 0.4);
+}
+
+.footer-section h4 {
+  font-size: 15px;
+  margin-bottom: 15px;
+  color: #0050C8;
+}
+
+.footer-section p {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.footer-small {
+  font-size: 12px;
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 80, 200, 0.3), rgba(255, 90, 0, 0.3));
+  border: 2px solid #FF5A00;
+  font-size: 20px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  transform: scale(1.25) rotate(10deg);
+  background: linear-gradient(135deg, rgba(0, 80, 200, 0.6), rgba(255, 90, 0, 0.6));
+  box-shadow: 0 0 20px rgba(255, 90, 0, 0.8), 0 0 20px rgba(0, 80, 200, 0.6);
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -545,6 +1098,15 @@ body {
     margin-bottom: 15px;
   }
 
+  .code-example {
+    padding: 12px;
+    margin-top: 15px;
+  }
+
+  .code-example pre {
+    font-size: 11px;
+  }
+
   .slide-actions {
     gap: 12px;
     margin-top: 25px;
@@ -583,6 +1145,50 @@ body {
     padding: 10px 18px;
     bottom: 140px;
   }
+
+  .dark-mode-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    top: 15px;
+    left: 20px;
+  }
+
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    right: 20px;
+    bottom: 250px;
+  }
+
+  .footer {
+    padding: 30px 15px;
+    margin-top: 40px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 15px;
+  }
+
+  .footer-section p {
+    font-size: 12px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -618,6 +1224,24 @@ body {
     line-height: 1.6;
     margin-bottom: 12px;
     text-align: left;
+  }
+
+  .code-example {
+    padding: 10px;
+  }
+
+  .code-example pre {
+    font-size: 10px;
+  }
+
+  .certificate-form {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .cert-input {
+    font-size: 14px;
+    padding: 10px 12px;
   }
 
   .slide-body {
@@ -658,5 +1282,32 @@ body {
     bottom: 130px;
     font-size: 11px;
     padding: 8px 14px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 20% auto;
+    padding: 20px;
+  }
+
+  #certificateCanvas {
+    max-width: 100%;
+  }
+
+  /* animate.css file-e `progress-bar` class-ti update korun */
+  .progress-bar {
+    height: 6px;
+    /* Halka boro kora holo */
+    background: linear-gradient(90deg, #1abc9c, #3498db, #8e44ad);
+    /* Vibrant gradient add kora holo */
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+    /* Halka glow */
+    transition: width 0.3s ease-in-out;
+    /* Movement-ta aro smooth korar jonno */
+  }
+
+  .progress-container {
+    /* Container-ke halka transparent kora jete pare */
+    background-color: rgba(0, 0, 0, 0.2);
   }
 }

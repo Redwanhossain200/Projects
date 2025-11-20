@@ -2,6 +2,304 @@
   const slides = [];
   let currentIndex = 0;
 
+  // ===== THEME TOGGLE (Light / Dark) =====
+  function updateThemeToggleIcon() {
+    const toggle = document.getElementById('darkModeToggle');
+    if (!toggle) return;
+    const icon = toggle.querySelector('.toggle-icon');
+    if (!icon) return;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || document.body.classList.contains('dark-mode')) {
+      icon.textContent = '🌙';
+    } else if (saved === 'light' || document.body.classList.contains('light-mode')) {
+      icon.textContent = '☀️';
+    } else {
+      // system
+      icon.textContent = '🖥️';
+    }
+  }
+
+  function initDarkMode() {
+    const toggle = document.getElementById('darkModeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'system';
+
+    function applySystemTheme() {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+      } else {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+      }
+    }
+
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+      } else if (theme === 'light') {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+      } else {
+        // system
+        applySystemTheme();
+        localStorage.setItem('theme', 'system');
+      }
+      updateThemeToggleIcon();
+    }
+
+    // initialize
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      setTheme(savedTheme);
+    } else {
+      // default to system
+      setTheme('system');
+    }
+
+    // If system chosen, listen for changes
+    if (window.matchMedia) {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      mq.addEventListener && mq.addEventListener('change', () => {
+        if (localStorage.getItem('theme') === 'system') applySystemTheme();
+      });
+    }
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        // cycle: system -> light -> dark -> system
+        const cur = localStorage.getItem('theme') || 'system';
+        const next = cur === 'system' ? 'light' : (cur === 'light' ? 'dark' : 'system');
+        setTheme(next);
+        playSound();
+      });
+    }
+  }
+
+  // ===== FOOTER INTERSECTION OBSERVER (hide nav dots when footer visible) =====
+  function initFooterObserver() {
+    const footer = document.querySelector('.footer');
+    const dots = document.querySelector('.nav-dots');
+    if (!footer || !dots) return;
+
+    // When footer appears, move the dots up so they don't overlap.
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // distance from footer top to viewport bottom
+          const footerTop = entry.boundingClientRect.top;
+          const overlap = Math.max(0, window.innerHeight - footerTop);
+          const extra = 20; // spacing above footer
+          dots.style.transition = 'bottom 300ms ease, transform 300ms ease, opacity 200ms ease';
+          dots.style.bottom = (overlap + extra) + 'px';
+        } else {
+          // reset to stylesheet default
+          dots.style.bottom = '';
+        }
+      });
+    }, { root: null, threshold: 0.01 });
+
+    observer.observe(footer);
+  }
+
+  // ===== BACK TO TOP BUTTON =====
+  function initBackToTop() {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      playSound();
+    });
+  }
+
+  // ===== SCROLL INDICATOR =====
+  function initScrollIndicator() {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = scrollPercent + '%';
+      }
+    });
+  }
+
+  // ===== CERTIFICATE GENERATOR =====
+  function initCertificate() {
+    const modal = document.getElementById('certificateModal');
+    const generateBtn = document.getElementById('generateCert');
+    const downloadBtn = document.getElementById('downloadCert');
+    const closeBtn = document.querySelector('.close');
+
+    if (!generateBtn) return;
+
+    generateBtn.addEventListener('click', () => {
+      const name = document.getElementById('certificateName').value.trim();
+      if (!name) {
+        showToast('Please enter your name!');
+        return;
+      }
+
+      generateCertificate(name);
+      if (modal) modal.style.display = 'block';
+      playSound();
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        if (modal) modal.style.display = 'none';
+      });
+    }
+
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', () => {
+        const canvas = document.getElementById('certificateCanvas');
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = 'certificate.png';
+        link.click();
+        playSound();
+        showToast('Certificate downloaded! 🎉');
+      });
+    }
+
+    window.addEventListener('click', (event) => {
+      if (event.target == modal) {
+        if (modal) modal.style.display = 'none';
+      }
+    });
+  }
+
+  function generateCertificate(name) {
+    const canvas = document.getElementById('certificateCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = 1200;
+    canvas.height = 800;
+
+    // Minimal / light certificate style
+    // White background
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Subtle outer border
+    ctx.strokeStyle = '#e6e9ef';
+    ctx.lineWidth = 6;
+    ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60);
+
+    // Thin inner rule
+    ctx.strokeStyle = '#f3f5f9';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(60, 60, canvas.width - 120, canvas.height - 120);
+
+    // Accent bar (small subtle color) for a light brand touch
+    ctx.fillStyle = '#2c7be5';
+    ctx.fillRect(80, 100, 140, 6);
+
+    // Title
+    ctx.fillStyle = '#111827';
+    ctx.font = 'bold 48px Helvetica, Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Certificate of Completion', canvas.width / 2, 170);
+
+    // Small subtitle / lead-in
+    ctx.fillStyle = '#6b7280';
+    ctx.font = '18px Helvetica, Arial, sans-serif';
+    ctx.fillText('This certificate is presented to', canvas.width / 2, 230);
+
+    // Recipient name
+    ctx.fillStyle = '#0f172a';
+    ctx.font = '700 42px Helvetica, Arial, sans-serif';
+    ctx.fillText(name, canvas.width / 2, 300);
+
+    // Description / course text (wrap manually if needed)
+    ctx.fillStyle = '#374151';
+    ctx.font = '18px Helvetica, Arial, sans-serif';
+    ctx.fillText('For successfully completing the Interactive Web Development course', canvas.width / 2, 360);
+
+    // Date (centered)
+    const date = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    ctx.fillStyle = '#6b7280';
+    ctx.font = '16px Helvetica, Arial, sans-serif';
+    ctx.fillText(date, canvas.width / 2, 420);
+
+    // Signature line (right side)
+    ctx.strokeStyle = '#d1d5db';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(canvas.width - 420, 620);
+    ctx.lineTo(canvas.width - 220, 620);
+    ctx.stroke();
+
+    ctx.fillStyle = '#374151';
+    ctx.font = '16px Helvetica, Arial, sans-serif';
+    ctx.fillText('Instructor', canvas.width - 320, 650);
+  }
+  function playSound() {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    oscillator.frequency.value = 800;
+    oscillator.type = 'sine';
+
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.1);
+  }
+  function initParticles() {
+    const container = document.getElementById('particleContainer');
+    if (!container) return;
+
+    const particleCount = 50;
+    const colors = ['rgba(0, 80, 200, 0.5)', 'rgba(255, 90, 0, 0.5)', 'rgba(0, 150, 255, 0.4)'];
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+
+      const size = Math.random() * 4 + 1;
+      const x = Math.random() * 100;
+      const duration = Math.random() * 20 + 15;
+      const delay = Math.random() * 5;
+      const tx = (Math.random() - 0.5) * 100;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = x + '%';
+      particle.style.bottom = '-10px';
+      particle.style.background = color;
+      particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+      particle.style.setProperty('--tx', tx + 'px');
+      particle.style.animation = `float ${duration}s linear ${delay}s infinite`;
+
+      container.appendChild(particle);
+    }
+  }
+
   // Initialize slides
   function initSlides() {
     document.querySelectorAll('[data-index]').forEach(slide => {
@@ -114,13 +412,20 @@
 
   // Initialize
   document.addEventListener('DOMContentLoaded', function() {
+    initDarkMode();
+    initBackToTop();
+    initScrollIndicator();
+    initCertificate();
+    initParticles();
     initSlides();
+    initFooterObserver();
     
     // Delegated click handling for buttons with data-action
     document.addEventListener('click', (ev) => {
       const btn = ev.target.closest('[data-action]');
       if (!btn) return;
       const action = btn.getAttribute('data-action');
+      playSound();
       if (action === 'next') return nextSlide();
       if (action === 'prev') return prevSlide();
       if (action === 'first') return goToSlide(0);
