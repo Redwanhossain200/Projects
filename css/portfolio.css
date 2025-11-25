@@ -30,6 +30,7 @@ body {
   color: black;
   /* border: 2px solid #872BFF; */
 }
+
 .btn-white:hover {
   background-color: #872BFF;
   color: white;
