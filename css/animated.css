@@ -16,7 +16,7 @@ body {
   font-size: 3rem;
   font-weight: bold;
   animation: colorChange 3s infinite;
-  text-transform: capitalize;
+  text-transform: uppercase;
 
 }
 
