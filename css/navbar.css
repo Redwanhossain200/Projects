@@ -20,8 +20,8 @@ body {
   height: 70px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid white;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  border: 2px solid #BF00FF;
+  box-shadow: 0 0 10px #4D00FF;
 }
 
 .header {
@@ -145,6 +145,202 @@ body {
 .btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(255, 170, 0, 0.6);
+}
+
+/* Categoris Section  */
+.categories {
+  width: 100%;
+  padding: 5rem 10%;
+  text-align: center;
+  color: white;
+}
+
+.categories h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 10px rgba(0, 0, 0, .6);
+}
+
+.category-box {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* For 3D perspective */
+.category-box {
+  perspective: 1000px;
+}
+
+/* Smooth animation */
+.tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+
+/* Premium Category Card */
+.cat-card {
+  width: 380px;
+  height: 260px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+  transition: 0.35s ease;
+}
+
+/* Image Stylish */
+.cat-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+  transition: 0.35s ease;
+}
+
+/* Gradient Overlay for premium look */
+.cat-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 70%;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  pointer-events: none;
+}
+
+/* Title */
+.cat-card h3 {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+/* Glow Shine Effect */
+.cat-card::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
+  transform: skewX(-20deg);
+  transition: 0.4s;
+}
+
+/* Hover Effects */
+.cat-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 10px 30px rgba(255, 180, 0, 0.4);
+}
+
+.cat-card:hover img {
+  filter: brightness(85%) saturate(130%);
+}
+
+.cat-card:hover::before {
+  top: 100%;
+}
+
+/* Product Section */
+.products {
+  width: 100%;
+  padding: 5rem 10%;
+  text-align: center;
+  color: white;
+}
+
+.products h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Product Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+}
+
+/* Product Card */
+.product-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 1rem;
+  position: relative;
+  transition: 0.35s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+}
+
+/* Product Image */
+.product-card img {
+  width: 100%;
+  height: 220px;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+/* Product Name */
+.product-card h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+/* Product Price */
+.price {
+  font-size: 1.1rem;
+  color: #ffb400;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Add to Cart Button */
+.add-cart {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ffb400, #ff9900);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.add-cart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 170, 0, 0.6);
+}
+
+/* Hover Glow */
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255, 180, 0, 0.4);
+}
+
+.product-card:hover img {
+  filter: brightness(90%) saturate(120%);
 }
 
 /* Responsive */

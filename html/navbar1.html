@@ -7,6 +7,7 @@
   <title>Responsive Navbar using HTML & CSS</title>
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link rel="shortcut icon" href="https://img.icons8.com/?size=128&id=66258&format=png" type="image/x-icon">
 </head>
 
 <body>
@@ -41,6 +42,98 @@
       <a href="#" class="btn">Shop Now</a>
     </div>
   </section>
+
+  <!-- Categories section  -->
+  <section class="categories">
+    <h2>Shop by Category</h2>
+
+    <div class="category-box">
+
+      <div class="cat-card tilt">
+        <img
+          src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?_gl=1*1xiexv8*_ga*MTgyNjI2ODk5My4xNzYyMDg2OTcx*_ga_8JE65Q40S6*czE3NjQ3NzM2ODIkbzYkZzEkdDE3NjQ3NzM2OTgkajQ0JGwwJGgw"
+          alt="">
+        <h3>Men</h3>
+      </div>
+
+      <div class="cat-card tilt">
+        <img
+          src="https://images.pexels.com/photos/932401/pexels-photo-932401.jpeg?_gl=1*3so6w6*_ga*MTgyNjI2ODk5My4xNzYyMDg2OTcx*_ga_8JE65Q40S6*czE3NjQ3NzM2ODIkbzYkZzEkdDE3NjQ3NzM4NzEkajQ0JGwwJGgw"
+          alt="">
+        <h3>Women</h3>
+      </div>
+
+      <div class="cat-card tilt">
+        <img
+          src="https://images.pexels.com/photos/2388657/pexels-photo-2388657.jpeg?_gl=1*1ytb8l9*_ga*MTgyNjI2ODk5My4xNzYyMDg2OTcx*_ga_8JE65Q40S6*czE3NjQ3NzM2ODIkbzYkZzEkdDE3NjQ3NzM5ODUkajI4JGwwJGgw"
+          alt="">
+        <h3>Kids</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Product Card  -->
+  <section class="products">
+    <h2>Featured Products</h2>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/8chCtPw/shirt.jpg" alt="">
+        <h3>Classic Shirt</h3>
+        <p class="price">$29.99</p>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/cx7CVZN/shoes.jpg" alt="">
+        <h3>Running Shoes</h3>
+        <p class="price">$49.99</p>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/rZ5jW8s/watch.jpg" alt="">
+        <h3>Stylish Watch</h3>
+        <p class="price">$39.99</p>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/b1W4y84/bag.jpg" alt="">
+        <h3>Leather Bag</h3>
+        <p class="price">$59.99</p>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
 </body>
+
+<script>
+  const cards = document.querySelectorAll('.tilt');
+
+  cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const rotateX = ((y - rect.height / 2) / 15) * -1;
+      const rotateY = (x - rect.width / 2) / 15;
+
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.07)`;
+      card.style.boxShadow = "0 20px 40px rgba(255, 180, 0, 0.4)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+      card.style.boxShadow = "0 8px 20px rgba(255,255,255,0.15)";
+    });
+  });
+
+</script>
 
 </html>
