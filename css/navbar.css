@@ -372,7 +372,7 @@ body {
   font-weight: 700;
   margin-bottom: 15px;
   background: linear-gradient(90deg, #ff6b00, #ffb400);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
