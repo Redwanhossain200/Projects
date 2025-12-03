@@ -343,6 +343,175 @@ body {
   filter: brightness(90%) saturate(120%);
 }
 
+/* ---------- Premium Glass Footer ----------- */
+
+.footer {
+  background: rgba(10, 10, 10, 0.25);
+  /* semi-transparent glass */
+  backdrop-filter: blur(15px);
+  /* glass blur effect */
+  padding: 70px 5% 25px;
+  color: #fff;
+  border-top: 2px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(90deg, #ff6b00, #ffb400);
+  margin-top: 60px;
+  border-radius: 20px 20px 0 0;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 35px;
+}
+
+/* Logo */
+.footer-col h3.logo {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ff6b00, #ffb400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Paragraph */
+.footer p {
+  color: #f0f0f0aa;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Social Icons */
+.footer-social a {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 20px;
+  color: #fff;
+  transition: 0.3s;
+  padding: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-social a:hover {
+  color: #fff;
+  background: linear-gradient(45deg, #ff6b00, #ffb400);
+  transform: scale(1.15);
+}
+
+/* Links */
+.footer-col h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  position: relative;
+  font-weight: 600;
+}
+
+.footer-col ul li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #f0f0f0aa;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffb400;
+  padding-left: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* Subscribe Box — Glass */
+.subscribe-box {
+  margin-top: 10px;
+  display: flex;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 5px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.subscribe-box input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+}
+
+.subscribe-box button {
+  padding: 10px 18px;
+  border: none;
+  background: linear-gradient(135deg, #ff6b00, #ffb400);
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-box button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 180, 0, 0.5);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #b5b5b5;
+}
+
+
+/* ---------- Footer Wave Animation ---------- */
+.footer-wave {
+  position: absolute;
+  top: -40px;
+  /* footer top-এর উপরে */
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(270deg, #ff6b00, #ffb400, #ff6b00);
+  background-size: 600% 600%;
+  border-radius: 100% 100% 0 0;
+  animation: wave 8s linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+/* Wave keyframes */
+@keyframes wave {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Footer relative positioning for wave */
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
 /* Responsive */
 @media (max-width:992px) {
   .header {
