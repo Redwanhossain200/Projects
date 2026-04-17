@@ -17,7 +17,6 @@ body {
   font-weight: bold;
   animation: colorChange 3s infinite;
   text-transform: uppercase;
-
 }
 
 @keyframes colorChange {
@@ -40,5 +39,4 @@ body {
   100% {
     color: #ff0040;
   }
-
 }

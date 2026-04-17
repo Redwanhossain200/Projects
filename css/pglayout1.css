@@ -10,7 +10,7 @@
   transform: translate(20px, 20px);
   opacity: 0.7;
   transition: 1.5s;
-  box-shadow: 0px 0px 15px 1.5px #A00079;
+  box-shadow: 0px 0px 15px 1.5px #a00079;
 }
 
 .margin:hover {
@@ -35,6 +35,6 @@
   border: 6px solid rgb(130, 23, 188);
   border-radius: 5px;
   margin: 15px 15px 15px 15px;
-  box-shadow: 0px 0px 5px 0.5px #6C553E;
+  box-shadow: 0px 0px 5px 0.5px #6c553e;
   padding: 15px 15px 15px 15px;
 }

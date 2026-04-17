@@ -15,9 +15,20 @@
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: conic-gradient(#ffd166 0% 25%, rgba(255, 255, 255, 0.08) 25% 100%);
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 14px), black calc(100% - 13px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 14px), black calc(100% - 13px));
+  background: conic-gradient(
+    #ffd166 0% 25%,
+    rgba(255, 255, 255, 0.08) 25% 100%
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 14px),
+    black calc(100% - 13px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 14px),
+    black calc(100% - 13px)
+  );
   animation: rotate 1.2s linear infinite;
 }
 

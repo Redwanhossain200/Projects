@@ -1,4 +1,4 @@
-(function() {
+(function () {
   // Add styles for interactive elements
   const css = `
     .btn {
@@ -52,21 +52,21 @@
     setTimeout(() => el.classList.remove('active-glow'), 1200);
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const btnBasics = document.getElementById('btnBasics');
     const btnFeatures = document.getElementById('btnFeatures');
     const basicsBox = document.querySelector('.boxp-container');
     const featuresBox = document.querySelector('.box');
 
     if (btnBasics) {
-      btnBasics.addEventListener('click', function() {
+      btnBasics.addEventListener('click', function () {
         btnFeatures.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setTimeout(() => pulse(featuresBox), 600);
       });
     }
 
     if (btnFeatures) {
-      btnFeatures.addEventListener('click', function() {
+      btnFeatures.addEventListener('click', function () {
         btnBasics.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setTimeout(() => pulse(basicsBox), 600);
       });

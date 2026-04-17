@@ -4,7 +4,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #002850, #020813, #FF5A00);
+  background: linear-gradient(135deg, #002850, #020813, #ff5a00);
   background-attachment: fixed;
   backdrop-filter: blur(12px);
 }
@@ -33,13 +33,13 @@ p {
   margin-top: 80px;
   margin-bottom: 140px;
   border: 3px solid transparent;
-  border-image: linear-gradient(45deg, #0050C8, #FF5A00) 1;
+  border-image: linear-gradient(45deg, #0050c8, #ff5a00) 1;
   border-radius: 20px;
   box-shadow:
-    0 0 25px #0050C8,
-    0 0 25px #FF5A00,
+    0 0 25px #0050c8,
+    0 0 25px #ff5a00,
     0 0 40px rgba(0, 0, 0, 0.6);
-  text-shadow: 0 0 20px #0050C8;
+  text-shadow: 0 0 20px #0050c8;
   padding-left: 40px;
   padding-right: 60px;
   padding-top: 50px;
@@ -55,8 +55,8 @@ p {
 
 .boxp-container:hover {
   box-shadow:
-    0 0 40px #0050C8,
-    0 0 40px #FF5A00,
+    0 0 40px #0050c8,
+    0 0 40px #ff5a00,
     0 0 60px rgba(0, 150, 255, 0.5);
   transform: translateY(-5px);
 }
@@ -72,13 +72,13 @@ p {
   margin-top: 80px;
   margin-bottom: 140px;
   border: 3px solid transparent;
-  border-image: linear-gradient(45deg, #0050C8, #FF5A00) 1;
+  border-image: linear-gradient(45deg, #0050c8, #ff5a00) 1;
   border-radius: 20px;
   box-shadow:
-    0 0 25px #0050C8,
-    0 0 25px #FF5A00,
+    0 0 25px #0050c8,
+    0 0 25px #ff5a00,
     0 0 40px rgba(0, 0, 0, 0.6);
-  text-shadow: 0 0 20px #0050C8;
+  text-shadow: 0 0 20px #0050c8;
   padding-left: 40px;
   padding-right: 60px;
   padding-top: 50px;
@@ -94,8 +94,8 @@ p {
 
 .box:hover {
   box-shadow:
-    0 0 40px #0050C8,
-    0 0 40px #FF5A00,
+    0 0 40px #0050c8,
+    0 0 40px #ff5a00,
     0 0 60px rgba(255, 100, 0, 0.5);
   transform: translateY(-5px);
 }
@@ -117,18 +117,29 @@ p {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
   cursor: pointer;
-  border: 2px solid #FF5A00;
+  border: 2px solid #ff5a00;
   box-shadow: 1px 0px 30px 1px whitesmoke;
   transition: all 0.5s ease-in-out;
-  background: linear-gradient(135deg, rgba(0, 80, 200, 0.3), rgba(255, 90, 0, 0.3));
+  background: linear-gradient(
+    135deg,
+    rgba(0, 80, 200, 0.3),
+    rgba(255, 90, 0, 0.3)
+  );
   color: whitesmoke;
   font-weight: bold;
 }
 
 .btn:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 30px #0050C8, 0 0 30px #FF5A00, inset 0 0 20px rgba(255, 255, 255, 0.2);
-  background: linear-gradient(135deg, rgba(0, 80, 200, 0.5), rgba(255, 90, 0, 0.5));
+  box-shadow:
+    0 0 30px #0050c8,
+    0 0 30px #ff5a00,
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 80, 200, 0.5),
+    rgba(255, 90, 0, 0.5)
+  );
 }
 
 .btn:active {
@@ -144,17 +155,26 @@ html {
 @keyframes pulseBox {
   0% {
     transform: translateY(0);
-    box-shadow: 0 0 25px #0050C8, 0 0 25px #FF5A00, 0 0 40px rgba(0, 0, 0, 0.6);
+    box-shadow:
+      0 0 25px #0050c8,
+      0 0 25px #ff5a00,
+      0 0 40px rgba(0, 0, 0, 0.6);
   }
 
   50% {
     transform: translateY(-8px);
-    box-shadow: 0 0 50px #0050C8, 0 0 50px #FF5A00, 0 0 80px rgba(0, 150, 255, 0.5);
+    box-shadow:
+      0 0 50px #0050c8,
+      0 0 50px #ff5a00,
+      0 0 80px rgba(0, 150, 255, 0.5);
   }
 
   100% {
     transform: translateY(0);
-    box-shadow: 0 0 25px #0050C8, 0 0 25px #FF5A00, 0 0 40px rgba(0, 0, 0, 0.6);
+    box-shadow:
+      0 0 25px #0050c8,
+      0 0 25px #ff5a00,
+      0 0 40px rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -164,7 +184,6 @@ html {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-
   .boxp-container,
   .box {
     width: 85%;
@@ -174,7 +193,6 @@ html {
 }
 
 @media (max-width: 768px) {
-
   .boxp-container,
   .box {
     width: 90%;
@@ -198,7 +216,6 @@ html {
 }
 
 @media (max-width: 480px) {
-
   .boxp-container,
   .box {
     width: 95%;

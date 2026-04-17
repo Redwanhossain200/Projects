@@ -1,803 +1,973 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Interactive Web Development Learning Hub" />
+    <meta
+      name="keywords"
+      content="html, css, javascript, web development, interactive, learning" />
+    <meta name="author" content="Redwan Hossain" />
+    <link rel="shortcut icon" href="../Images/logo1.jpg" type="image/x-icon" />
+    <title>FoodieHouse — Restaurant</title>
+    <meta
+      name="description"
+      content="FoodieHouse — fresh, tasty, and handcrafted dishes. Frontend-only demo with booking & contact (no backend)." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive Web Development Learning Hub">
-  <meta name="keywords" content="html, css, javascript, web development, interactive, learning">
-  <meta name="author" content="Redwan Hossain">
-  <link rel="shortcut icon" href="../Images/logo1.jpg" type="image/x-icon">
-  <title>FoodieHouse — Restaurant</title>
-  <meta name="description"
-    content="FoodieHouse — fresh, tasty, and handcrafted dishes. Frontend-only demo with booking & contact (no backend)." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ---------------- Reset & Base ---------------- */
-    :root {
-      --accent: #ff4d4d;
-      --accent-2: #ff7a7a;
-      --bg: #fafafa;
-      --card: #ffffff;
-      --muted: #6b6b6b;
-      --radius: 14px;
-      --glass: rgba(255, 255, 255, 0.6);
-      --max-width: 1100px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    html,
-    body {
-      height: 100%
-    }
-
-    body {
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(180deg, #fff 0%, #fbfbfb 100%);
-      color: #111;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1.45;
-      -webkit-text-size-adjust: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px
-    }
-
-    /* ---------------- Header / Nav ---------------- */
-    header.site-header {
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-      box-shadow: 0 6px 18px rgba(16, 24, 40, 0.03);
-    }
-
-    .nav-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0
-    }
-
-    .brand {
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing: 0.2px
-    }
-
-    .brand span {
-      color: var(--accent)
-    }
-
-    nav.main-nav {
-      display: flex;
-      gap: 18px;
-      align-items: center
-    }
-
-    nav.main-nav a {
-      padding: 8px 10px;
-      border-radius: 8px;
-      font-weight: 600;
-      color: #222
-    }
-
-    nav.main-nav a:hover,
-    nav.main-nav a:focus {
-      background: rgba(255, 77, 77, 0.08);
-      color: var(--accent)
-    }
-
-    .cta {
-      display: inline-block;
-      padding: 8px 14px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 10px;
-      font-weight: 600
-    }
-
-    .cta:hover {
-      background: var(--accent-2)
-    }
-
-    /* Hamburger for mobile */
-    .hambtn {
-      display: none;
-      background: none;
-      border: 0;
-      padding: 8px;
-      border-radius: 8px
-    }
-
-    .hambtn svg {
-      width: 22px;
-      height: 22px
-    }
-
-    /* ---------------- Hero ---------------- */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 88px 0 56px;
-      background-image: url('https://images.unsplash.com/photo-1542826438-3e5b17b6d9a1?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center
-    }
-
-    .hero .overlay {
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25));
-      width: 100%;
-      padding: 64px 0
-    }
-
-    .hero-card {
-      background: rgba(255, 255, 255, 0.02);
-      max-width: 980px;
-      margin: 0 auto;
-      color: #fff;
-      padding: 48px;
-      border-radius: 18px;
-      text-align: center
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 12px;
-      line-height: 1.05
-    }
-
-    .hero p.lead {
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 18px;
-      font-size: 18px
-    }
-
-    .hero .actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 18px;
-      border-radius: 10px;
-      border: 0;
-      cursor: pointer;
-      font-weight: 600
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 1.5px solid rgba(255, 255, 255, 0.16)
-    }
-
-    /* ---------------- Sections ---------------- */
-    section {
-      padding: 64px 0
-    }
-
-    h2.section-title {
-      font-size: 26px;
-      margin-bottom: 18px;
-      text-align: center
-    }
-
-    p.lead-muted {
-      text-align: center;
-      color: var(--muted);
-      max-width: 760px;
-      margin: 8px auto 26px
-    }
-
-    /* ---------------- Menu Grid ---------------- */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px
-    }
-
-    .dish {
-      background: var(--card);
-      padding: 18px;
-      border-radius: 14px;
-      box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
-      min-height: 150px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between
-    }
-
-    .dish h3 {
-      color: var(--accent);
-      margin-bottom: 6px
-    }
-
-    .dish p {
-      color: var(--muted);
-      font-size: 14px
-    }
-
-    .price {
-      font-weight: 700;
-      margin-top: 12px
-    }
-
-    /* ---------------- About / Features ---------------- */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: center
-    }
-
-    .about-card {
-      background: linear-gradient(180deg, #fff, #fff);
-      padding: 22px;
-      border-radius: 12px
-    }
-
-    /* ---------------- Booking Modal (frontend only) ---------------- */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(2, 6, 23, 0.55);
-      visibility: hidden;
-      opacity: 0;
-      transform: scale(.98);
-      transition: all .18s ease
-    }
-
-    .modal.open {
-      visibility: visible;
-      opacity: 1;
-      transform: scale(1)
-    }
-
-    .modal-card {
-      width: 100%;
-      max-width: 520px;
-      background: var(--card);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 20px 40px rgba(2, 6, 23, 0.12)
-    }
-
-    .modal-card h3 {
-      margin-bottom: 10px
-    }
-
-    .form-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 12px
-    }
-
-    .form-row .field {
-      flex: 1
-    }
-
-    label {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 6px;
-      color: #333
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(16, 24, 40, 0.08);
-      font-size: 14px
-    }
-
-    .small {
-      font-size: 13px;
-      color: var(--muted)
-    }
-
-    /* ---------------- Contact ---------------- */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 22px
-    }
-
-    .contact-card {
-      background: var(--card);
-      padding: 18px;
-      border-radius: 12px
-    }
-
-    /* ---------------- Footer ---------------- */
-    footer.site-footer {
-      padding: 22px 0;
-      background: #0f1724;
-      color: #fff;
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.03)
-    }
-
-    /* ---------------- Utilities ---------------- */
-    .flex {
-      display: flex
-    }
-
-    .center {
-      justify-content: center;
-      align-items: center
-    }
-
-    /* ---------------- Responsive ---------------- */
-    @media (max-width:980px) {
-      .menu-grid {
-        grid-template-columns: repeat(2, 1fr)
+    <style>
+      /* ---------------- Reset & Base ---------------- */
+      :root {
+        --accent: #ff4d4d;
+        --accent-2: #ff7a7a;
+        --bg: #fafafa;
+        --card: #ffffff;
+        --muted: #6b6b6b;
+        --radius: 14px;
+        --glass: rgba(255, 255, 255, 0.6);
+        --max-width: 1100px;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
 
-      .contact-grid {
-        grid-template-columns: 1fr
+      html,
+      body {
+        height: 100%;
       }
-    }
 
-    @media (max-width:720px) {
+      body {
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          'Helvetica Neue',
+          Arial;
+        background: linear-gradient(180deg, #fff 0%, #fbfbfb 100%);
+        color: #111;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.45;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .container {
+        width: 100%;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* ---------------- Header / Nav ---------------- */
+      header.site-header {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        backdrop-filter: blur(6px);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.7)
+        );
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        box-shadow: 0 6px 18px rgba(16, 24, 40, 0.03);
+      }
+
       .nav-row {
-        padding: 12px
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 0.2px;
+      }
+
+      .brand span {
+        color: var(--accent);
       }
 
       nav.main-nav {
-        display: none
+        display: flex;
+        gap: 18px;
+        align-items: center;
       }
 
+      nav.main-nav a {
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-weight: 600;
+        color: #222;
+      }
+
+      nav.main-nav a:hover,
+      nav.main-nav a:focus {
+        background: rgba(255, 77, 77, 0.08);
+        color: var(--accent);
+      }
+
+      .cta {
+        display: inline-block;
+        padding: 8px 14px;
+        background: var(--accent);
+        color: #fff;
+        border-radius: 10px;
+        font-weight: 600;
+      }
+
+      .cta:hover {
+        background: var(--accent-2);
+      }
+
+      /* Hamburger for mobile */
       .hambtn {
-        display: inline-block
+        display: none;
+        background: none;
+        border: 0;
+        padding: 8px;
+        border-radius: 8px;
+      }
+
+      .hambtn svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      /* ---------------- Hero ---------------- */
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 88px 0 56px;
+        background-image: url('https://images.unsplash.com/photo-1542826438-3e5b17b6d9a1?auto=format&fit=crop&w=1600&q=80');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero .overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.35),
+          rgba(0, 0, 0, 0.25)
+        );
+        width: 100%;
+        padding: 64px 0;
+      }
+
+      .hero-card {
+        background: rgba(255, 255, 255, 0.02);
+        max-width: 980px;
+        margin: 0 auto;
+        color: #fff;
+        padding: 48px;
+        border-radius: 18px;
+        text-align: center;
       }
 
       .hero h1 {
-        font-size: 28px
+        font-size: 36px;
+        margin-bottom: 12px;
+        line-height: 1.05;
       }
 
+      .hero p.lead {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 18px;
+        font-size: 18px;
+      }
+
+      .hero .actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 18px;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: #fff;
+        border: 1.5px solid rgba(255, 255, 255, 0.16);
+      }
+
+      /* ---------------- Sections ---------------- */
+      section {
+        padding: 64px 0;
+      }
+
+      h2.section-title {
+        font-size: 26px;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      p.lead-muted {
+        text-align: center;
+        color: var(--muted);
+        max-width: 760px;
+        margin: 8px auto 26px;
+      }
+
+      /* ---------------- Menu Grid ---------------- */
       .menu-grid {
-        grid-template-columns: 1fr
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
       }
 
-      .hero {
-        padding: 70px 0
+      .dish {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 14px;
+        box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
-    }
 
-    /* small helper for visually-hidden */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0
-    }
-  </style>
-</head>
+      .dish h3 {
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
 
-<body>
+      .dish p {
+        color: var(--muted);
+        font-size: 14px;
+      }
 
-  <!-- Header -->
-  <header class="site-header" role="banner">
-    <div class="container nav-row">
-      <div class="brand" aria-label="FoodieHouse">Foodie<span>House</span></div>
+      .price {
+        font-weight: 700;
+        margin-top: 12px;
+      }
 
-      <nav class="main-nav" role="navigation" aria-label="Main menu">
-        <a href="#home">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      /* ---------------- About / Features ---------------- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: center;
+      }
 
-      <div style="display:flex;align-items:center;gap:12px">
-        <a class="cta" href="#menu">View Menu</a>
-        <button class="btn btn-primary" id="open-book">Book a Table</button>
-        <button class="hambtn" id="hambBtn" aria-expanded="false" aria-controls="mobileMenu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
+      .about-card {
+        background: linear-gradient(180deg, #fff, #fff);
+        padding: 22px;
+        border-radius: 12px;
+      }
+
+      /* ---------------- Booking Modal (frontend only) ---------------- */
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(2, 6, 23, 0.55);
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(0.98);
+        transition: all 0.18s ease;
+      }
+
+      .modal.open {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .modal-card {
+        width: 100%;
+        max-width: 520px;
+        background: var(--card);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 20px 40px rgba(2, 6, 23, 0.12);
+      }
+
+      .modal-card h3 {
+        margin-bottom: 10px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .form-row .field {
+        flex: 1;
+      }
+
+      label {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 6px;
+        color: #333;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(16, 24, 40, 0.08);
+        font-size: 14px;
+      }
+
+      .small {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* ---------------- Contact ---------------- */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 22px;
+      }
+
+      .contact-card {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 12px;
+      }
+
+      /* ---------------- Footer ---------------- */
+      footer.site-footer {
+        padding: 22px 0;
+        background: #0f1724;
+        color: #fff;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.03);
+      }
+
+      /* ---------------- Utilities ---------------- */
+      .flex {
+        display: flex;
+      }
+
+      .center {
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* ---------------- Responsive ---------------- */
+      @media (max-width: 980px) {
+        .menu-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav-row {
+          padding: 12px;
+        }
+
+        nav.main-nav {
+          display: none;
+        }
+
+        .hambtn {
+          display: inline-block;
+        }
+
+        .hero h1 {
+          font-size: 28px;
+        }
+
+        .menu-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding: 70px 0;
+        }
+      }
+
+      /* small helper for visually-hidden */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="site-header" role="banner">
+      <div class="container nav-row">
+        <div class="brand" aria-label="FoodieHouse">
+          Foodie<span>House</span>
+        </div>
+
+        <nav class="main-nav" role="navigation" aria-label="Main menu">
+          <a href="#home">Home</a>
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div style="display: flex; align-items: center; gap: 12px">
+          <a class="cta" href="#menu">View Menu</a>
+          <button class="btn btn-primary" id="open-book">Book a Table</button>
+          <button
+            class="hambtn"
+            id="hambBtn"
+            aria-expanded="false"
+            aria-controls="mobileMenu">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <!-- Mobile menu (simple) -->
-    <div id="mobileMenu" style="display:none;background:var(--card);border-top:1px solid rgba(0,0,0,0.04)">
-      <div class="container" style="padding:12px 20px;display:flex;flex-direction:column;gap:8px">
-        <a href="#home">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+      <!-- Mobile menu (simple) -->
+      <div
+        id="mobileMenu"
+        style="
+          display: none;
+          background: var(--card);
+          border-top: 1px solid rgba(0, 0, 0, 0.04);
+        ">
+        <div
+          class="container"
+          style="
+            padding: 12px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+          ">
+          <a href="#home">Home</a>
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- HERO -->
-  <main>
-    <section id="home" class="hero" aria-labelledby="heroTitle">
-      <div class="overlay">
-        <div class="hero-card container">
-          <h1 id="heroTitle">Fresh. Local. Delicious.</h1>
-          <p class="lead">Taste handcrafted dishes prepared daily by our chefs — made with local, seasonal ingredients.
+    <!-- HERO -->
+    <main>
+      <section id="home" class="hero" aria-labelledby="heroTitle">
+        <div class="overlay">
+          <div class="hero-card container">
+            <h1 id="heroTitle">Fresh. Local. Delicious.</h1>
+            <p class="lead">
+              Taste handcrafted dishes prepared daily by our chefs — made with
+              local, seasonal ingredients.
+            </p>
+
+            <div class="actions">
+              <button class="btn btn-primary" id="open-book-hero">
+                Reserve a Table
+              </button>
+              <a class="btn btn-outline" href="#menu">Explore Menu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MENU -->
+      <section id="menu">
+        <div class="container">
+          <h2 class="section-title">Our Popular Dishes</h2>
+          <p class="lead-muted">
+            Hand-picked favorites — small batch recipes, updated weekly.
           </p>
 
-          <div class="actions">
-            <button class="btn btn-primary" id="open-book-hero">Reserve a Table</button>
-            <a class="btn btn-outline" href="#menu">Explore Menu</a>
+          <div class="menu-grid" aria-live="polite">
+            <article class="dish" aria-labelledby="dish1">
+              <div>
+                <h3 id="dish1">Grilled Lemon-Herb Chicken</h3>
+                <p>
+                  Marinated overnight, grilled to a golden finish, served with
+                  roasted seasonal veg.
+                </p>
+              </div>
+              <div class="price">৳320</div>
+            </article>
+
+            <article class="dish" aria-labelledby="dish2">
+              <div>
+                <h3 id="dish2">Creamy Truffle Fettuccine</h3>
+                <p>
+                  Fresh pasta tossed with wild mushrooms, cream, and a hint of
+                  truffle oil.
+                </p>
+              </div>
+              <div class="price">৳420</div>
+            </article>
+
+            <article class="dish" aria-labelledby="dish3">
+              <div>
+                <h3 id="dish3">Signature Classic Burger</h3>
+                <p>
+                  Double-seared beef patty, house sauce, aged cheddar, brioche
+                  bun, fries on the side.
+                </p>
+              </div>
+              <div class="price">৳280</div>
+            </article>
+
+            <article class="dish" aria-labelledby="dish4">
+              <div>
+                <h3 id="dish4">Paneer Tikka Masala</h3>
+                <p>
+                  Smoky paneer cubes in a rich, spiced tomato gravy — served
+                  with naan or rice.
+                </p>
+              </div>
+              <div class="price">৳300</div>
+            </article>
+
+            <article class="dish" aria-labelledby="dish5">
+              <div>
+                <h3 id="dish5">Fresh Garden Salad</h3>
+                <p>
+                  Seasonal greens, candied nuts, citrus vinaigrette — light and
+                  refreshing.
+                </p>
+              </div>
+              <div class="price">৳180</div>
+            </article>
+
+            <article class="dish" aria-labelledby="dish6">
+              <div>
+                <h3 id="dish6">Chocolate Lava Cake</h3>
+                <p>
+                  Warm molten center, vanilla ice cream, finished with cocoa
+                  dust.
+                </p>
+              </div>
+              <div class="price">৳160</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title">About FoodieHouse</h2>
+          <p class="lead-muted">
+            We opened with a single goal: to serve honest food made from the
+            best local ingredients. Small-batch recipes and a friendly
+            atmosphere — that's our promise.
+          </p>
+
+          <div class="about-grid">
+            <div class="about-card">
+              <h3>Farm-to-table</h3>
+              <p class="small">
+                We partner with nearby farms to source produce weekly, reducing
+                waste and supporting the local community.
+              </p>
+            </div>
+
+            <div class="about-card">
+              <h3>Experienced Chefs</h3>
+              <p class="small">
+                Our kitchen team brings experience from international and local
+                culinary traditions to create balanced flavors.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title">Contact & Reservation</h2>
+          <p class="lead-muted">
+            Use the reservation form to hold a spot (frontend-only demo).
+            Contact form below sends data to localStorage (no backend).
+          </p>
+
+          <div class="contact-grid">
+            <!-- contact form -->
+            <form
+              id="contactForm"
+              class="contact-card"
+              aria-label="Contact form">
+              <label for="name">Your name</label>
+              <input id="name" name="name" required placeholder="Ex: Rahim" />
+
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="you@example.com" />
+
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Write your message..."></textarea>
+
+              <div
+                style="
+                  margin-top: 12px;
+                  display: flex;
+                  gap: 10px;
+                  align-items: center;
+                ">
+                <button class="btn btn-primary" type="submit">
+                  Send Message
+                </button>
+                <div id="contactStatus" class="small" aria-live="polite"></div>
+              </div>
+            </form>
+
+            <!-- contact details -->
+            <aside class="contact-card">
+              <h3>Visit Us</h3>
+              <p class="small">123 Food Lane, Dhaka, Bangladesh</p>
+              <p class="small">Phone: +880 1234-567890</p>
+              <p class="small">Email: support@foodiehouse.com</p>
+
+              <div style="margin-top: 16px">
+                <strong>Opening Hours</strong>
+                <p class="small">
+                  Mon–Fri: 11:00 — 22:00<br />Sat–Sun: 09:00 — 23:00
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+          ">
+          <div>
+            © <span id="year"></span> FoodieHouse — All rights reserved.
+          </div>
+          <div style="color: rgba(255, 255, 255, 0.7)">
+            Built with Frontend-only (no backend)
           </div>
         </div>
       </div>
-    </section>
+    </footer>
 
-    <!-- MENU -->
-    <section id="menu">
-      <div class="container">
-        <h2 class="section-title">Our Popular Dishes</h2>
-        <p class="lead-muted">Hand-picked favorites — small batch recipes, updated weekly.</p>
-
-        <div class="menu-grid" aria-live="polite">
-
-          <article class="dish" aria-labelledby="dish1">
-            <div>
-              <h3 id="dish1">Grilled Lemon-Herb Chicken</h3>
-              <p>Marinated overnight, grilled to a golden finish, served with roasted seasonal veg.</p>
-            </div>
-            <div class="price">৳320</div>
-          </article>
-
-          <article class="dish" aria-labelledby="dish2">
-            <div>
-              <h3 id="dish2">Creamy Truffle Fettuccine</h3>
-              <p>Fresh pasta tossed with wild mushrooms, cream, and a hint of truffle oil.</p>
-            </div>
-            <div class="price">৳420</div>
-          </article>
-
-          <article class="dish" aria-labelledby="dish3">
-            <div>
-              <h3 id="dish3">Signature Classic Burger</h3>
-              <p>Double-seared beef patty, house sauce, aged cheddar, brioche bun, fries on the side.</p>
-            </div>
-            <div class="price">৳280</div>
-          </article>
-
-          <article class="dish" aria-labelledby="dish4">
-            <div>
-              <h3 id="dish4">Paneer Tikka Masala</h3>
-              <p>Smoky paneer cubes in a rich, spiced tomato gravy — served with naan or rice.</p>
-            </div>
-            <div class="price">৳300</div>
-          </article>
-
-          <article class="dish" aria-labelledby="dish5">
-            <div>
-              <h3 id="dish5">Fresh Garden Salad</h3>
-              <p>Seasonal greens, candied nuts, citrus vinaigrette — light and refreshing.</p>
-            </div>
-            <div class="price">৳180</div>
-          </article>
-
-          <article class="dish" aria-labelledby="dish6">
-            <div>
-              <h3 id="dish6">Chocolate Lava Cake</h3>
-              <p>Warm molten center, vanilla ice cream, finished with cocoa dust.</p>
-            </div>
-            <div class="price">৳160</div>
-          </article>
-
+    <!-- ---------------- Booking Modal (frontend-only) ---------------- -->
+    <div
+      id="bookingModal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="modalTitle">
+      <div class="modal-card">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+          ">
+          <h3 id="modalTitle">Reserve a Table</h3>
+          <button
+            id="closeModal"
+            aria-label="Close reservation form"
+            style="
+              background: none;
+              border: 0;
+              font-size: 18px;
+              cursor: pointer;
+            ">
+            ✕
+          </button>
         </div>
-      </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title">About FoodieHouse</h2>
-        <p class="lead-muted">We opened with a single goal: to serve honest food made from the best local ingredients.
-          Small-batch recipes and a friendly atmosphere — that's our promise.</p>
-
-        <div class="about-grid">
-          <div class="about-card">
-            <h3>Farm-to-table</h3>
-            <p class="small">We partner with nearby farms to source produce weekly, reducing waste and supporting the
-              local community.</p>
+        <form id="bookingForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="guestName">Name</label>
+              <input
+                id="guestName"
+                name="guestName"
+                required
+                placeholder="Your full name" />
+            </div>
+            <div class="field">
+              <label for="guestPhone">Phone</label>
+              <input
+                id="guestPhone"
+                name="guestPhone"
+                type="tel"
+                placeholder="01XXXXXXXXX"
+                required />
+            </div>
           </div>
 
-          <div class="about-card">
-            <h3>Experienced Chefs</h3>
-            <p class="small">Our kitchen team brings experience from international and local culinary traditions to
-              create balanced flavors.</p>
+          <div class="form-row">
+            <div class="field">
+              <label for="date">Date</label>
+              <input
+                id="date"
+                name="date"
+                type="date"
+                required
+                min="2025-01-01" />
+            </div>
+            <div class="field">
+              <label for="time">Time</label>
+              <input id="time" name="time" type="time" required />
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact & Reservation</h2>
-        <p class="lead-muted">Use the reservation form to hold a spot (frontend-only demo). Contact form below sends
-          data to localStorage (no backend).</p>
+          <div style="margin-bottom: 12px">
+            <label for="people">Guests</label>
+            <select id="people" name="people" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
 
-        <div class="contact-grid">
+          <div style="display: flex; gap: 10px; align-items: center">
+            <button class="btn btn-primary" type="submit">
+              Confirm Reservation
+            </button>
+            <div id="bookStatus" class="small" aria-live="polite"></div>
+          </div>
 
-          <!-- contact form -->
-          <form id="contactForm" class="contact-card" aria-label="Contact form">
-            <label for="name">Your name</label>
-            <input id="name" name="name" required placeholder="Ex: Rahim" />
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="you@example.com" />
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Write your message..."></textarea>
-
-            <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
-              <button class="btn btn-primary" type="submit">Send Message</button>
-              <div id="contactStatus" class="small" aria-live="polite"></div>
-            </div>
-          </form>
-
-          <!-- contact details -->
-          <aside class="contact-card">
-            <h3>Visit Us</h3>
-            <p class="small">123 Food Lane, Dhaka, Bangladesh</p>
-            <p class="small">Phone: +880 1234-567890</p>
-            <p class="small">Email: support@foodiehouse.com</p>
-
-            <div style="margin-top:16px">
-              <strong>Opening Hours</strong>
-              <p class="small">Mon–Fri: 11:00 — 22:00<br>Sat–Sun: 09:00 — 23:00</p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>© <span id="year"></span> FoodieHouse — All rights reserved.</div>
-        <div style="color:rgba(255,255,255,0.7)">Built with Frontend-only (no backend)</div>
+          <p class="small" style="margin-top: 10px">
+            Note: This demo stores reservations locally in your browser
+            (localStorage). No backend is used. Use this when learning or before
+            connecting a server.
+          </p>
+        </form>
       </div>
     </div>
-  </footer>
 
-  <!-- ---------------- Booking Modal (frontend-only) ---------------- -->
-  <div id="bookingModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
-    <div class="modal-card">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <h3 id="modalTitle">Reserve a Table</h3>
-        <button id="closeModal" aria-label="Close reservation form"
-          style="background:none;border:0;font-size:18px;cursor:pointer">✕</button>
-      </div>
+    <script>
+      // ---------- Small helpers ----------
+      const qs = (selector) => document.querySelector(selector);
+      const qsa = (selector) => document.querySelectorAll(selector);
 
-      <form id="bookingForm">
-        <div class="form-row">
-          <div class="field">
-            <label for="guestName">Name</label>
-            <input id="guestName" name="guestName" required placeholder="Your full name">
-          </div>
-          <div class="field">
-            <label for="guestPhone">Phone</label>
-            <input id="guestPhone" name="guestPhone" type="tel" placeholder="01XXXXXXXXX" required>
-          </div>
-        </div>
+      // set copyright year
+      qs('#year').textContent = new Date().getFullYear();
 
-        <div class="form-row">
-          <div class="field">
-            <label for="date">Date</label>
-            <input id="date" name="date" type="date" required min="2025-01-01">
-          </div>
-          <div class="field">
-            <label for="time">Time</label>
-            <input id="time" name="time" type="time" required>
-          </div>
-        </div>
-
-        <div style="margin-bottom:12px">
-          <label for="people">Guests</label>
-          <select id="people" name="people" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5+</option>
-          </select>
-        </div>
-
-        <div style="display:flex;gap:10px;align-items:center">
-          <button class="btn btn-primary" type="submit">Confirm Reservation</button>
-          <div id="bookStatus" class="small" aria-live="polite"></div>
-        </div>
-
-        <p class="small" style="margin-top:10px">Note: This demo stores reservations locally in your browser
-          (localStorage). No backend is used. Use this when learning or before connecting a server.</p>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    // ---------- Small helpers ----------
-    const qs = selector => document.querySelector(selector);
-    const qsa = selector => document.querySelectorAll(selector);
-
-    // set copyright year
-    qs('#year').textContent = new Date().getFullYear();
-
-    // ---------- Mobile menu toggle ----------
-    const hambBtn = qs('#hambBtn');
-    const mobileMenu = qs('#mobileMenu');
-    hambBtn.addEventListener('click', () => {
-      const expanded = hambBtn.getAttribute('aria-expanded') === 'true';
-      hambBtn.setAttribute('aria-expanded', String(!expanded));
-      mobileMenu.style.display = expanded ? 'none' : 'block';
-    });
-
-    // Smooth scroll for internal links
-    qsa('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        // allow normal external anchors
-        const href = a.getAttribute('href');
-        if (!href || href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-        // if mobile menu is open, close it
-        if (mobileMenu.style.display === 'block') {
-          mobileMenu.style.display = 'none';
-          hambBtn.setAttribute('aria-expanded', 'false');
-        }
+      // ---------- Mobile menu toggle ----------
+      const hambBtn = qs('#hambBtn');
+      const mobileMenu = qs('#mobileMenu');
+      hambBtn.addEventListener('click', () => {
+        const expanded = hambBtn.getAttribute('aria-expanded') === 'true';
+        hambBtn.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu.style.display = expanded ? 'none' : 'block';
       });
-    });
 
-    // ---------- Booking modal logic (frontend-only) ----------
-    const bookingModal = qs('#bookingModal');
-    const openBtns = [qs('#open-book'), qs('#open-book-hero')].filter(Boolean);
-    const closeModal = qs('#closeModal');
-    const bookingForm = qs('#bookingForm');
-    const bookStatus = qs('#bookStatus');
+      // Smooth scroll for internal links
+      qsa('a[href^="#"]').forEach((a) => {
+        a.addEventListener('click', (e) => {
+          // allow normal external anchors
+          const href = a.getAttribute('href');
+          if (!href || href === '#') return;
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target)
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    function openModal() {
-      bookingModal.classList.add('open');
-      bookingModal.setAttribute('aria-hidden', 'false');
-      qs('#guestName').focus();
-    }
-    function closeBooking() {
-      bookingModal.classList.remove('open');
-      bookingModal.setAttribute('aria-hidden', 'true');
-      bookStatus.textContent = '';
-    }
-    openBtns.forEach(b => b.addEventListener('click', openModal));
-    closeModal.addEventListener('click', closeBooking);
+          // if mobile menu is open, close it
+          if (mobileMenu.style.display === 'block') {
+            mobileMenu.style.display = 'none';
+            hambBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
 
-    // close modal on outside click
-    bookingModal.addEventListener('click', (e) => {
-      if (e.target === bookingModal) closeBooking();
-    });
+      // ---------- Booking modal logic (frontend-only) ----------
+      const bookingModal = qs('#bookingModal');
+      const openBtns = [qs('#open-book'), qs('#open-book-hero')].filter(
+        Boolean,
+      );
+      const closeModal = qs('#closeModal');
+      const bookingForm = qs('#bookingForm');
+      const bookStatus = qs('#bookStatus');
 
-    // simple booking persistence: store in localStorage under 'fh_bookings'
-    function loadBookings() {
-      try { return JSON.parse(localStorage.getItem('fh_bookings') || '[]'); }
-      catch (e) { return []; }
-    }
-    function saveBookings(arr) { localStorage.setItem('fh_bookings', JSON.stringify(arr)); }
+      function openModal() {
+        bookingModal.classList.add('open');
+        bookingModal.setAttribute('aria-hidden', 'false');
+        qs('#guestName').focus();
+      }
+      function closeBooking() {
+        bookingModal.classList.remove('open');
+        bookingModal.setAttribute('aria-hidden', 'true');
+        bookStatus.textContent = '';
+      }
+      openBtns.forEach((b) => b.addEventListener('click', openModal));
+      closeModal.addEventListener('click', closeBooking);
 
-    bookingForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = {
-        id: 'b_' + Date.now(),
-        name: qs('#guestName').value.trim(),
-        phone: qs('#guestPhone').value.trim(),
-        date: qs('#date').value,
-        time: qs('#time').value,
-        people: qs('#people').value,
-        createdAt: new Date().toISOString()
-      };
+      // close modal on outside click
+      bookingModal.addEventListener('click', (e) => {
+        if (e.target === bookingModal) closeBooking();
+      });
 
-      // Basic validation
-      if (!data.name || !data.phone || !data.date || !data.time) {
-        bookStatus.textContent = 'Please fill all required fields.';
-        return;
+      // simple booking persistence: store in localStorage under 'fh_bookings'
+      function loadBookings() {
+        try {
+          return JSON.parse(localStorage.getItem('fh_bookings') || '[]');
+        } catch (e) {
+          return [];
+        }
+      }
+      function saveBookings(arr) {
+        localStorage.setItem('fh_bookings', JSON.stringify(arr));
       }
 
-      const bookings = loadBookings();
-      bookings.push(data);
-      saveBookings(bookings);
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = {
+          id: 'b_' + Date.now(),
+          name: qs('#guestName').value.trim(),
+          phone: qs('#guestPhone').value.trim(),
+          date: qs('#date').value,
+          time: qs('#time').value,
+          people: qs('#people').value,
+          createdAt: new Date().toISOString(),
+        };
 
-      bookStatus.textContent = 'Reservation saved locally ✅';
+        // Basic validation
+        if (!data.name || !data.phone || !data.date || !data.time) {
+          bookStatus.textContent = 'Please fill all required fields.';
+          return;
+        }
 
-      // Clear form (friendly) and close after 1.1s
-      bookingForm.reset();
-      setTimeout(() => { closeBooking(); alert('Reservation stored locally. To make this functional with email/DB, connect a backend or API.'); }, 1100);
-    });
+        const bookings = loadBookings();
+        bookings.push(data);
+        saveBookings(bookings);
 
-    // ---------- Contact form (stores to localStorage) ----------
-    const contactForm = qs('#contactForm');
-    const contactStatus = qs('#contactStatus');
+        bookStatus.textContent = 'Reservation saved locally ✅';
 
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const payload = { id: 'c_' + Date.now(), name: qs('#name').value.trim(), email: qs('#email').value.trim(), message: qs('#message').value.trim(), createdAt: new Date().toISOString() };
-      if (!payload.name || !payload.email) { contactStatus.textContent = 'Name and email required.'; return; }
-      const inbox = JSON.parse(localStorage.getItem('fh_inbox') || '[]');
-      inbox.push(payload); localStorage.setItem('fh_inbox', JSON.stringify(inbox));
-      contactStatus.textContent = 'Message saved locally. Thank you!';
-      contactForm.reset();
-    });
+        // Clear form (friendly) and close after 1.1s
+        bookingForm.reset();
+        setTimeout(() => {
+          closeBooking();
+          alert(
+            'Reservation stored locally. To make this functional with email/DB, connect a backend or API.',
+          );
+        }, 1100);
+      });
 
-    // ---------- Accessibility: close modal with Esc ----------
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { if (bookingModal.classList.contains('open')) closeBooking(); }
-    });
+      // ---------- Contact form (stores to localStorage) ----------
+      const contactForm = qs('#contactForm');
+      const contactStatus = qs('#contactStatus');
 
-    // ---------- Defensive: ensure date min is today if possible ----------
-    (function setDateMinToToday() {
-      const dateInput = qs('#date');
-      if (!dateInput) return;
-      const today = new Date();
-      const yyyy = today.getFullYear();
-      const mm = String(today.getMonth() + 1).padStart(2, '0');
-      const dd = String(today.getDate()).padStart(2, '0');
-      dateInput.min = `${yyyy}-${mm}-${dd}`;
-    })();
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const payload = {
+          id: 'c_' + Date.now(),
+          name: qs('#name').value.trim(),
+          email: qs('#email').value.trim(),
+          message: qs('#message').value.trim(),
+          createdAt: new Date().toISOString(),
+        };
+        if (!payload.name || !payload.email) {
+          contactStatus.textContent = 'Name and email required.';
+          return;
+        }
+        const inbox = JSON.parse(localStorage.getItem('fh_inbox') || '[]');
+        inbox.push(payload);
+        localStorage.setItem('fh_inbox', JSON.stringify(inbox));
+        contactStatus.textContent = 'Message saved locally. Thank you!';
+        contactForm.reset();
+      });
 
+      // ---------- Accessibility: close modal with Esc ----------
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (bookingModal.classList.contains('open')) closeBooking();
+        }
+      });
 
-  </script>
-</body>
-
+      // ---------- Defensive: ensure date min is today if possible ----------
+      (function setDateMinToToday() {
+        const dateInput = qs('#date');
+        if (!dateInput) return;
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+      })();
+    </script>
+  </body>
 </html>

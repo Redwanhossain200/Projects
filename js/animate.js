@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const slides = [];
   let currentIndex = 0;
 
@@ -11,7 +11,10 @@
     const saved = localStorage.getItem('theme');
     if (saved === 'dark' || document.body.classList.contains('dark-mode')) {
       icon.textContent = '🌙';
-    } else if (saved === 'light' || document.body.classList.contains('light-mode')) {
+    } else if (
+      saved === 'light' ||
+      document.body.classList.contains('light-mode')
+    ) {
       icon.textContent = '☀️';
     } else {
       // system
@@ -24,7 +27,9 @@
     const savedTheme = localStorage.getItem('theme') || 'system';
 
     function applySystemTheme() {
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (prefersDark) {
         document.body.classList.add('dark-mode');
         document.body.classList.remove('light-mode');
@@ -62,16 +67,18 @@
     // If system chosen, listen for changes
     if (window.matchMedia) {
       const mq = window.matchMedia('(prefers-color-scheme: dark)');
-      mq.addEventListener && mq.addEventListener('change', () => {
-        if (localStorage.getItem('theme') === 'system') applySystemTheme();
-      });
+      mq.addEventListener &&
+        mq.addEventListener('change', () => {
+          if (localStorage.getItem('theme') === 'system') applySystemTheme();
+        });
     }
 
     if (toggle) {
       toggle.addEventListener('click', () => {
         // cycle: system -> light -> dark -> system
         const cur = localStorage.getItem('theme') || 'system';
-        const next = cur === 'system' ? 'light' : (cur === 'light' ? 'dark' : 'system');
+        const next =
+          cur === 'system' ? 'light' : cur === 'light' ? 'dark' : 'system';
         setTheme(next);
         playSound();
       });
@@ -85,21 +92,25 @@
     if (!footer || !dots) return;
 
     // When footer appears, move the dots up so they don't overlap.
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // distance from footer top to viewport bottom
-          const footerTop = entry.boundingClientRect.top;
-          const overlap = Math.max(0, window.innerHeight - footerTop);
-          const extra = 20; // spacing above footer
-          dots.style.transition = 'bottom 300ms ease, transform 300ms ease, opacity 200ms ease';
-          dots.style.bottom = (overlap + extra) + 'px';
-        } else {
-          // reset to stylesheet default
-          dots.style.bottom = '';
-        }
-      });
-    }, { root: null, threshold: 0.01 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // distance from footer top to viewport bottom
+            const footerTop = entry.boundingClientRect.top;
+            const overlap = Math.max(0, window.innerHeight - footerTop);
+            const extra = 20; // spacing above footer
+            dots.style.transition =
+              'bottom 300ms ease, transform 300ms ease, opacity 200ms ease';
+            dots.style.bottom = overlap + extra + 'px';
+          } else {
+            // reset to stylesheet default
+            dots.style.bottom = '';
+          }
+        });
+      },
+      { root: null, threshold: 0.01 },
+    );
 
     observer.observe(footer);
   }
@@ -127,9 +138,10 @@
   function initScrollIndicator() {
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
-      
+
       const progressBar = document.getElementById('progressBar');
       if (progressBar) {
         progressBar.style.width = scrollPercent + '%';
@@ -228,13 +240,17 @@
     // Description / course text (wrap manually if needed)
     ctx.fillStyle = '#374151';
     ctx.font = '18px Helvetica, Arial, sans-serif';
-    ctx.fillText('For successfully completing the Interactive Web Development course', canvas.width / 2, 360);
+    ctx.fillText(
+      'For successfully completing the Interactive Web Development course',
+      canvas.width / 2,
+      360,
+    );
 
     // Date (centered)
     const date = new Date().toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     });
     ctx.fillStyle = '#6b7280';
     ctx.font = '16px Helvetica, Arial, sans-serif';
@@ -253,7 +269,9 @@
     ctx.fillText('Instructor', canvas.width - 320, 650);
   }
   function playSound() {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const audioContext = new (
+      window.AudioContext || window.webkitAudioContext
+    )();
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
 
@@ -264,7 +282,10 @@
     oscillator.type = 'sine';
 
     gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+    gainNode.gain.exponentialRampToValueAtTime(
+      0.01,
+      audioContext.currentTime + 0.1,
+    );
 
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.1);
@@ -274,7 +295,11 @@
     if (!container) return;
 
     const particleCount = 50;
-    const colors = ['rgba(0, 80, 200, 0.5)', 'rgba(255, 90, 0, 0.5)', 'rgba(0, 150, 255, 0.4)'];
+    const colors = [
+      'rgba(0, 80, 200, 0.5)',
+      'rgba(255, 90, 0, 0.5)',
+      'rgba(0, 150, 255, 0.4)',
+    ];
 
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
@@ -302,7 +327,7 @@
 
   // Initialize slides
   function initSlides() {
-    document.querySelectorAll('[data-index]').forEach(slide => {
+    document.querySelectorAll('[data-index]').forEach((slide) => {
       slides.push(slide);
     });
   }
@@ -353,10 +378,10 @@
   // Navigate to slide
   function goToSlide(index) {
     if (index < 0 || index >= slides.length) return;
-    
+
     currentIndex = index;
     const targetSlide = slides[index];
-    
+
     targetSlide.scrollIntoView({ behavior: 'smooth', block: 'center' });
     pulse(targetSlide.querySelector('.slide-content'));
     // restart title animation (typewriter CSS animation)
@@ -366,13 +391,15 @@
       void title.offsetWidth;
       title.style.animation = '';
     }
-    
+
     updateProgressBar();
     updateProgressCounter();
     updateDots();
     // Show a short toast using the slide title (fallback to index)
     const slideTitle = targetSlide.querySelector('.slide-title');
-    const toastText = slideTitle ? slideTitle.textContent : `Slide ${index + 1}`;
+    const toastText = slideTitle
+      ? slideTitle.textContent
+      : `Slide ${index + 1}`;
     showToast(toastText);
   }
 
@@ -411,7 +438,7 @@
   });
 
   // Initialize
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     initDarkMode();
     initBackToTop();
     initScrollIndicator();
@@ -419,7 +446,7 @@
     initParticles();
     initSlides();
     initFooterObserver();
-    
+
     // Delegated click handling for buttons with data-action
     document.addEventListener('click', (ev) => {
       const btn = ev.target.closest('[data-action]');
@@ -448,7 +475,9 @@
     // Also support swipe on each slide for more reliable touch behavior
     slides.forEach((s) => {
       let sx = 0;
-      s.addEventListener('touchstart', (e) => { sx = e.changedTouches[0].screenX; });
+      s.addEventListener('touchstart', (e) => {
+        sx = e.changedTouches[0].screenX;
+      });
       s.addEventListener('touchend', (e) => {
         const ex = e.changedTouches[0].screenX;
         if (sx - ex > 50) nextSlide();

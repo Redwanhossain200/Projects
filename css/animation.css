@@ -18,7 +18,7 @@
   background-repeat: no-repeat;
   margin: auto;
   margin-top: 50px;
-  box-shadow: 0px 0px 10px 5px #A00079;
+  box-shadow: 0px 0px 10px 5px #a00079;
   position: relative;
 }
 
@@ -30,7 +30,7 @@
   border: 2px solid white;
   top: 0px;
   left: 0px;
-  background-color: #A00079;
+  background-color: #a00079;
   opacity: 0.3;
   animation-name: box;
   animation-duration: 5s;
@@ -45,30 +45,30 @@
   0% {
     top: 0px;
     left: 0px;
-    background-color: #A00079;
+    background-color: #a00079;
   }
 
   25% {
     top: 0px;
     left: 400px;
-    background-color: #A00079;
+    background-color: #a00079;
   }
 
   50% {
     top: 400px;
     left: 400px;
-    background-color: #A00079;
+    background-color: #a00079;
   }
 
   75% {
     top: 400px;
     left: 0px;
-    background-color: #A00079;
+    background-color: #a00079;
   }
 
   100% {
     top: 0px;
     left: 0px;
-    background-color: #A00079;
+    background-color: #a00079;
   }
 }

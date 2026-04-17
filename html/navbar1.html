@@ -1,235 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar using HTML & CSS</title>
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/?size=128&id=66258&format=png"
+      type="image/x-icon" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Navbar using HTML & CSS</title>
-  <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-  <link rel="shortcut icon" href="https://img.icons8.com/?size=128&id=66258&format=png" type="image/x-icon">
-</head>
-
-<body>
-
-  <!-- Header Section -->
-  <header class="header">
-    <a href="#" class="logo"> <img src="../Images/34665994_18_asfasw112-removebg-preview.png" alt="" class="image"> </a>
-    <input type="checkbox" id="check">
-    <label for="check" class="icons">
-      <i class="bx bx-menu" id="menu-icon"></i>
-      <i class='bx bx-x' id="close-icon"></i>
-    </label>
-    <nav class="navbar">
-      <a href="#" style="--i:0">Home</a>
-      <a href="#" style="--i:1">About</a>
-      <a href="#" style="--i:2">Gallery</a>
-      <a href="#" style="--i:3">Services</a>
-      <a href="#" style="--i:4">Contact</a>
-    </nav>
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Explore Your Fashion</h1>
-      <p>Discover the latest trends with unbeatable prices.</p>
-      <a href="#" class="btn">Shop Now</a>
-    </div>
-  </section>
-
-  <!-- Categories section  -->
-  <section class="categories">
-    <h2>Shop by Category</h2>
-
-    <div class="category-box">
-
-      <div class="cat-card tilt">
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <a href="#" class="logo">
         <img
-          src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?_gl=1*1xiexv8*_ga*MTgyNjI2ODk5My4xNzYyMDg2OTcx*_ga_8JE65Q40S6*czE3NjQ3NzM2ODIkbzYkZzEkdDE3NjQ3NzM2OTgkajQ0JGwwJGgw"
-          alt="">
-        <h3>Men</h3>
+          src="../Images/34665994_18_asfasw112-removebg-preview.png"
+          alt=""
+          class="image" />
+      </a>
+      <input type="checkbox" id="check" />
+      <label for="check" class="icons">
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <i class="bx bx-x" id="close-icon"></i>
+      </label>
+      <nav class="navbar">
+        <a href="#" style="--i: 0">Home</a>
+        <a href="#" style="--i: 1">About</a>
+        <a href="#" style="--i: 2">Gallery</a>
+        <a href="#" style="--i: 3">Services</a>
+        <a href="#" style="--i: 4">Contact</a>
+      </nav>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+    </header>
 
-      <div class="cat-card tilt">
-        <img
-          src="https://images.pexels.com/photos/932401/pexels-photo-932401.jpeg?_gl=1*3so6w6*_ga*MTgyNjI2ODk5My4xNzYyMDg2OTcx*_ga_8JE65Q40S6*czE3NjQ3NzM2ODIkbzYkZzEkdDE3NjQ3NzM4NzEkajQ0JGwwJGgw"
-          alt="">
-        <h3>Women</h3>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Explore Your Fashion</h1>
+        <p>Discover the latest trends with unbeatable prices.</p>
+        <a href="#" class="btn">Shop Now</a>
       </div>
+    </section>
 
-      <div class="cat-card tilt">
-        <img
-          src="https://images.pexels.com/photos/2388657/pexels-photo-2388657.jpeg?_gl=1*1ytb8l9*_ga*MTgyNjI2ODk5My4xNzYyMDg2OTcx*_ga_8JE65Q40S6*czE3NjQ3NzM2ODIkbzYkZzEkdDE3NjQ3NzM5ODUkajI4JGwwJGgw"
-          alt="">
-        <h3>Kids</h3>
+    <!-- Categories section  -->
+    <section class="categories">
+      <h2>Shop by Category</h2>
+
+      <div class="category-box">
+        <div class="cat-card tilt">
+          <img
+            src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?_gl=1*1xiexv8*_ga*MTgyNjI2ODk5My4xNzYyMDg2OTcx*_ga_8JE65Q40S6*czE3NjQ3NzM2ODIkbzYkZzEkdDE3NjQ3NzM2OTgkajQ0JGwwJGgw"
+            alt="" />
+          <h3>Men</h3>
+        </div>
+
+        <div class="cat-card tilt">
+          <img
+            src="https://images.pexels.com/photos/932401/pexels-photo-932401.jpeg?_gl=1*3so6w6*_ga*MTgyNjI2ODk5My4xNzYyMDg2OTcx*_ga_8JE65Q40S6*czE3NjQ3NzM2ODIkbzYkZzEkdDE3NjQ3NzM4NzEkajQ0JGwwJGgw"
+            alt="" />
+          <h3>Women</h3>
+        </div>
+
+        <div class="cat-card tilt">
+          <img
+            src="https://images.pexels.com/photos/2388657/pexels-photo-2388657.jpeg?_gl=1*1ytb8l9*_ga*MTgyNjI2ODk5My4xNzYyMDg2OTcx*_ga_8JE65Q40S6*czE3NjQ3NzM2ODIkbzYkZzEkdDE3NjQ3NzM5ODUkajI4JGwwJGgw"
+            alt="" />
+          <h3>Kids</h3>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Products Section  -->
+    <section class="products">
+      <h2>Featured Products</h2>
 
-  <!-- Products Section  -->
-  <section class="products">
-    <h2>Featured Products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img
+            src="https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg"
+            alt="" />
+          <h3>Classic Shirt</h3>
+          <p class="price">$29.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
 
-    <div class="product-grid">
+        <div class="product-card">
+          <img
+            src="https://images.pexels.com/photos/19090/pexels-photo.jpg"
+            alt="" />
+          <h3>Running Shoes</h3>
+          <p class="price">$49.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
 
-      <div class="product-card">
-        <img src="https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg" alt="">
-        <h3>Classic Shirt</h3>
-        <p class="price">$29.99</p>
-        <button class="add-cart">Add to Cart</button>
+        <div class="product-card">
+          <img
+            src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg"
+            alt="" />
+          <h3>Stylish Watch</h3>
+          <p class="price">$39.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg"
+            alt="" />
+          <h3>Leather Bag</h3>
+          <p class="price">$59.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="" alt="" />
+          <h3>Leather Bag</h3>
+          <p class="price">$59.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="" alt="" />
+          <h3>Leather Bag</h3>
+          <p class="price">$59.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="" alt="" />
+          <h3>Leather Bag</h3>
+          <p class="price">$59.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="" alt="" />
+          <h3>Leather Bag</h3>
+          <p class="price">$59.99</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
       </div>
+    </section>
 
-      <div class="product-card">
-        <img src="https://images.pexels.com/photos/19090/pexels-photo.jpg" alt="">
-        <h3>Running Shoes</h3>
-        <p class="price">$49.99</p>
-        <button class="add-cart">Add to Cart</button>
-      </div>
+    <!-- ⭐ Footer Section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Wave Animation -->
+        <div class="footer-wave"></div>
 
-      <div class="product-card">
-        <img src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg" alt="">
-        <h3>Stylish Watch</h3>
-        <p class="price">$39.99</p>
-        <button class="add-cart">Add to Cart</button>
-      </div>
+        <!-- Column 1 -->
+        <div class="footer-col">
+          <h3 class="logo">YourShop</h3>
+          <p>
+            We provide the best products with premium quality and affordable
+            prices.
+          </p>
 
-      <div class="product-card">
-        <img src="https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg" alt="">
-        <h3>Leather Bag</h3>
-        <p class="price">$59.99</p>
-        <button class="add-cart">Add to Cart</button>
-      </div>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
 
-      <div class="product-card">
-        <img src="" alt="">
-        <h3>Leather Bag</h3>
-        <p class="price">$59.99</p>
-        <button class="add-cart">Add to Cart</button>
-      </div>
+        <!-- Wave Animation -->
+        <div class="footer-wave"></div>
+        <!-- Column 2 -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
 
-      <div class="product-card">
-        <img src="" alt="">
-        <h3>Leather Bag</h3>
-        <p class="price">$59.99</p>
-        <button class="add-cart">Add to Cart</button>
-      </div>
+        <!-- Wave Animation -->
+        <div class="footer-wave"></div>
+        <!-- Column 3 -->
+        <div class="footer-col">
+          <h4>Customer Service</h4>
+          <ul>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Order Tracking</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
 
-      <div class="product-card">
-        <img src="" alt="">
-        <h3>Leather Bag</h3>
-        <p class="price">$59.99</p>
-        <button class="add-cart">Add to Cart</button>
-      </div>
+        <!-- Wave Animation -->
+        <div class="footer-wave"></div>
+        <!-- Column 4 -->
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Subscribe to get updates & offers.</p>
 
-      <div class="product-card">
-        <img src="" alt="">
-        <h3>Leather Bag</h3>
-        <p class="price">$59.99</p>
-        <button class="add-cart">Add to Cart</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ⭐ Footer Section -->
-  <footer class="footer">
-
-    <div class="footer-container">
-
-      <!-- Wave Animation -->
-      <div class="footer-wave"></div>
-
-      <!-- Column 1 -->
-      <div class="footer-col">
-        <h3 class="logo">YourShop</h3>
-        <p>We provide the best products with premium quality and affordable prices.</p>
-
-        <div class="footer-social">
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <form class="subscribe-box">
+            <input type="email" placeholder="Enter email" required />
+            <button type="submit">Subscribe</button>
+          </form>
         </div>
       </div>
 
-      <!-- Wave Animation -->
-      <div class="footer-wave"></div>
-      <!-- Column 2 -->
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <p>© 2025 YourShop — All rights reserved.</p>
       </div>
+    </footer>
+  </body>
 
-      <!-- Wave Animation -->
-      <div class="footer-wave"></div>
-      <!-- Column 3 -->
-      <div class="footer-col">
-        <h4>Customer Service</h4>
-        <ul>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">Order Tracking</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Terms & Conditions</a></li>
-        </ul>
-      </div>
+  <script>
+    const cards = document.querySelectorAll('.tilt');
 
-      <!-- Wave Animation -->
-      <div class="footer-wave"></div>
-      <!-- Column 4 -->
-      <div class="footer-col">
-        <h4>Newsletter</h4>
-        <p>Subscribe to get updates & offers.</p>
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-        <form class="subscribe-box">
-          <input type="email" placeholder="Enter email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
+        const rotateX = ((y - rect.height / 2) / 15) * -1;
+        const rotateY = (x - rect.width / 2) / 15;
 
-    </div>
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.07)`;
+        card.style.boxShadow = '0 20px 40px rgba(255, 180, 0, 0.4)';
+      });
 
-    <div class="footer-bottom">
-      <p>© 2025 YourShop — All rights reserved.</p>
-    </div>
-
-  </footer>
-
-</body>
-
-<script>
-  const cards = document.querySelectorAll('.tilt');
-
-  cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const rotateX = ((y - rect.height / 2) / 15) * -1;
-      const rotateY = (x - rect.width / 2) / 15;
-
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.07)`;
-      card.style.boxShadow = "0 20px 40px rgba(255, 180, 0, 0.4)";
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+        card.style.boxShadow = '0 8px 20px rgba(255,255,255,0.15)';
+      });
     });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "rotateX(0) rotateY(0) scale(1)";
-      card.style.boxShadow = "0 8px 20px rgba(255,255,255,0.15)";
-    });
-  });
-
-</script>
-
+  </script>
 </html>

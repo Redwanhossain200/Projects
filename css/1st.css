@@ -1,271 +1,283 @@
 :root {
-	--bg1: #fceff2;
-	--bg2: #f6f0ff;
-	--cake1: #ff9a9e;
-	--cake2: #ffd1dc;
-	--cake3: #ffb347;
-	--icing: #fff7f8;
-	--plate: #ffe9f2;
-	--candle: #fff6a8;
+  --bg1: #fceff2;
+  --bg2: #f6f0ff;
+  --cake1: #ff9a9e;
+  --cake2: #ffd1dc;
+  --cake3: #ffb347;
+  --icing: #fff7f8;
+  --plate: #ffe9f2;
+  --candle: #fff6a8;
 }
 
 * {
-	box-sizing: border-box
+  box-sizing: border-box;
 }
 
 html,
 body {
-	height: 100%
+  height: 100%;
 }
 
 body {
-	margin: 0;
-	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-	display: grid;
-	place-items: center;
-	background: linear-gradient(180deg, var(--bg1), var(--bg2));
-	color: #5a2a3a;
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: #5a2a3a;
 }
 
 .scene {
-	width: 420px;
-	max-width: 90%;
-	text-align: center
+  width: 420px;
+  max-width: 90%;
+  text-align: center;
 }
 
 .cake {
-	position: relative;
-	width: 320px;
-	height: 260px;
-	margin: 18px auto;
-	animation: float 4s ease-in-out infinite
+  position: relative;
+  width: 320px;
+  height: 260px;
+  margin: 18px auto;
+  animation: float 4s ease-in-out infinite;
 }
 
 .tier {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	box-shadow: 0 8px 18px rgba(20, 10, 10, 0.12) inset, 0 12px 24px rgba(10, 5, 10, 0.08)
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow:
+    0 8px 18px rgba(20, 10, 10, 0.12) inset,
+    0 12px 24px rgba(10, 5, 10, 0.08);
 }
 
 .tier.bottom {
-	bottom: 28px;
-	width: 320px;
-	height: 90px;
-	border-radius: 48px;
-	background: linear-gradient(180deg, var(--cake1), var(--cake2))
+  bottom: 28px;
+  width: 320px;
+  height: 90px;
+  border-radius: 48px;
+  background: linear-gradient(180deg, var(--cake1), var(--cake2));
 }
 
 .tier.middle {
-	bottom: 110px;
-	width: 230px;
-	height: 72px;
-	border-radius: 40px;
-	background: linear-gradient(180deg, var(--cake2), var(--cake3))
+  bottom: 110px;
+  width: 230px;
+  height: 72px;
+  border-radius: 40px;
+  background: linear-gradient(180deg, var(--cake2), var(--cake3));
 }
 
 .tier.top {
-	bottom: 170px;
-	width: 160px;
-	height: 64px;
-	border-radius: 36px;
-	background: linear-gradient(180deg, #ffdfe7, #ffefef)
+  bottom: 170px;
+  width: 160px;
+  height: 64px;
+  border-radius: 36px;
+  background: linear-gradient(180deg, #ffdfe7, #ffefef);
 }
 
 .icing {
-	position: absolute;
-	top: -12px;
-	left: 0;
-	right: 0;
-	height: 28px;
-	background: linear-gradient(180deg, var(--icing), #fff);
-	border-top-left-radius: 24px;
-	border-top-right-radius: 24px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06) inset;
-	animation: drip 5s ease-in-out infinite
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: linear-gradient(180deg, var(--icing), #fff);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06) inset;
+  animation: drip 5s ease-in-out infinite;
 }
 
 .plate {
-	position: absolute;
-	bottom: 8px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 380px;
-	height: 20px;
-	border-radius: 40px;
-	background: linear-gradient(180deg, var(--plate), #ffe6f0);
-	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12)
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 380px;
+  height: 20px;
+  border-radius: 40px;
+  background: linear-gradient(180deg, var(--plate), #ffe6f0);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12);
 }
 
 .candles {
-	position: absolute;
-	top: -26px;
-	left: 50%;
-	transform: translateX(-50%);
-	display: flex;
-	gap: 20px
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
 }
 
 .candle {
-	width: 10px;
-	height: 36px;
-	background: linear-gradient(180deg, var(--candle), #ffd);
-	border-radius: 4px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12)
+  width: 10px;
+  height: 36px;
+  background: linear-gradient(180deg, var(--candle), #ffd);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 .flame {
-	position: relative;
-	width: 10px;
-	height: 14px;
-	margin: -12px auto 0;
-	background: radial-gradient(circle at 30% 30%, #fff59d 0 8%, #ffd54a 10%, #ff7043 50%);
-	border-radius: 50% 50% 60% 60%;
-	filter: drop-shadow(0 2px 3px rgba(255, 140, 30, 0.25));
-	animation: flicker 0.18s infinite alternate
+  position: relative;
+  width: 10px;
+  height: 14px;
+  margin: -12px auto 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fff59d 0 8%,
+    #ffd54a 10%,
+    #ff7043 50%
+  );
+  border-radius: 50% 50% 60% 60%;
+  filter: drop-shadow(0 2px 3px rgba(255, 140, 30, 0.25));
+  animation: flicker 0.18s infinite alternate;
 }
 
 .sprinkles {
-	position: absolute;
-	inset: auto;
-	pointer-events: none
+  position: absolute;
+  inset: auto;
+  pointer-events: none;
 }
 
 .sprinkles span {
-	position: absolute;
-	display: block;
-	width: 6px;
-	height: 2px;
-	border-radius: 2px;
-	transform: rotate(-20deg);
-	opacity: 0.95
+  position: absolute;
+  display: block;
+  width: 6px;
+  height: 2px;
+  border-radius: 2px;
+  transform: rotate(-20deg);
+  opacity: 0.95;
 }
 
 .tier.bottom .sprinkles span:nth-child(1) {
-	left: 18%;
-	top: 30%;
-	background: #c76cf0
+  left: 18%;
+  top: 30%;
+  background: #c76cf0;
 }
 
 .tier.bottom .sprinkles span:nth-child(2) {
-	left: 38%;
-	top: 56%;
-	background: #ffec61
+  left: 38%;
+  top: 56%;
+  background: #ffec61;
 }
 
 .tier.bottom .sprinkles span:nth-child(3) {
-	left: 62%;
-	top: 40%;
-	background: #7be495
+  left: 62%;
+  top: 40%;
+  background: #7be495;
 }
 
 .tier.bottom .sprinkles span:nth-child(4) {
-	left: 78%;
-	top: 26%;
-	background: #ff6b8a
+  left: 78%;
+  top: 26%;
+  background: #ff6b8a;
 }
 
 .tier.bottom .sprinkles span:nth-child(5) {
-	left: 48%;
-	top: 18%;
-	background: #7cc7ff
+  left: 48%;
+  top: 18%;
+  background: #7cc7ff;
 }
 
 .tier.middle .sprinkles span:nth-child(1) {
-	left: 26%;
-	top: 34%;
-	background: #ff6b8a
+  left: 26%;
+  top: 34%;
+  background: #ff6b8a;
 }
 
 .tier.middle .sprinkles span:nth-child(2) {
-	left: 56%;
-	top: 48%;
-	background: #7be495
+  left: 56%;
+  top: 48%;
+  background: #7be495;
 }
 
 .tier.middle .sprinkles span:nth-child(3) {
-	left: 72%;
-	top: 24%;
-	background: #ffd5a6
+  left: 72%;
+  top: 24%;
+  background: #ffd5a6;
 }
 
 .tier.top .sprinkles span:nth-child(1) {
-	left: 40%;
-	top: 36%;
-	background: #ffd5a6
+  left: 40%;
+  top: 36%;
+  background: #ffd5a6;
 }
 
 .tier.top .sprinkles span:nth-child(2) {
-	left: 68%;
-	top: 28%;
-	background: #c76cf0
+  left: 68%;
+  top: 28%;
+  background: #c76cf0;
 }
 
 .caption {
-	font-weight: 600;
-	margin-top: 8px;
-	color: #6b2e40
+  font-weight: 600;
+  margin-top: 8px;
+  color: #6b2e40;
 }
 
 @keyframes float {
-	0% {
-		transform: translateY(0)
-	}
+  0% {
+    transform: translateY(0);
+  }
 
-	50% {
-		transform: translateY(-8px)
-	}
+  50% {
+    transform: translateY(-8px);
+  }
 
-	100% {
-		transform: translateY(0)
-	}
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes flicker {
-	0% {
-		transform: scale(1) translateY(0);
-		opacity: 1
-	}
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 
-	100% {
-		transform: scale(0.9) translateY(-3px);
-		opacity: 0.85
-	}
+  100% {
+    transform: scale(0.9) translateY(-3px);
+    opacity: 0.85;
+  }
 }
 
 @keyframes drip {
+  0%,
+  70% {
+    transform: translateY(0);
+  }
 
-	0%,
-	70% {
-		transform: translateY(0)
-	}
+  80% {
+    transform: translateY(2px);
+  }
 
-	80% {
-		transform: translateY(2px)
-	}
-
-	100% {
-		transform: translateY(0)
-	}
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* small responsive tweak */
-@media (max-width:420px) {
-	.cake {
-		width: 260px;
-		height: 210px
-	}
+@media (max-width: 420px) {
+  .cake {
+    width: 260px;
+    height: 210px;
+  }
 
-	.tier.bottom {
-		width: 260px
-	}
+  .tier.bottom {
+    width: 260px;
+  }
 
-	.tier.middle {
-		width: 180px;
-		left: 50%
-	}
+  .tier.middle {
+    width: 180px;
+    left: 50%;
+  }
 
-	.tier.top {
-		width: 120px
-	}
+  .tier.top {
+    width: 120px;
+  }
 }

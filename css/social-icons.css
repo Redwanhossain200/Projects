@@ -35,13 +35,13 @@ body {
 }
 
 .social-icons a:nth-child(1):hover {
-  background-color: #1877F2;
+  background-color: #1877f2;
 }
 
 .social-icons a:nth-child(2):hover {
-  background-color: #E4405F;
+  background-color: #e4405f;
 }
 
 .social-icons a:nth-child(3):hover {
-  background-color: #FF0000;
+  background-color: #ff0000;
 }

@@ -1,76 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Interactive Web Development Learning Hub" />
+    <meta
+      name="keywords"
+      content="html, css, javascript, web development, interactive, learning" />
+    <meta name="author" content="Redwan Hossain" />
+    <link
+      rel="shortcut icon"
+      href="../Images/download.png"
+      type="image/x-icon" />
+    <title>Web Mastery | Interactive Learning</title>
+    <link rel="stylesheet" href="../css/animate.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/social-icons.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive Web Development Learning Hub">
-  <meta name="keywords" content="html, css, javascript, web development, interactive, learning">
-  <meta name="author" content="Redwan Hossain">
-  <link rel="shortcut icon" href="../Images/download.png" type="image/x-icon">
-  <title>Web Mastery | Interactive Learning</title>
-  <link rel="stylesheet" href="../css/animate.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="../css/social-icons.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
+  <body>
+    <!-- Particle Background -->
+    <div id="particleContainer" class="particle-container"></div>
 
-<body>
-  <!-- Particle Background -->
-  <div id="particleContainer" class="particle-container"></div>
+    <!-- Progress bar (top) -->
+    <div class="progress-container" aria-hidden="false">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
 
-  <!-- Progress bar (top) -->
-  <div class="progress-container" aria-hidden="false">
-    <div id="progressBar" class="progress-bar"></div>
-  </div>
+    <!-- UI Elements Container -->
+    <div class="ui-container">
+      <!-- Dark Mode Toggle -->
+      <button
+        class="dark-mode-toggle"
+        id="darkModeToggle"
+        title="Toggle Dark Mode">
+        <span class="toggle-icon">🌙</span>
+      </button>
 
-  <!-- UI Elements Container -->
-  <div class="ui-container">
-    <!-- Dark Mode Toggle -->
-    <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
-      <span class="toggle-icon">🌙</span>
-    </button>
+      <!-- Progress counter -->
+      <div class="progress-counter" id="progressCounter">1 / 9</div>
 
-    <!-- Progress counter -->
-    <div class="progress-counter" id="progressCounter">1 / 9</div>
+      <!-- Keyboard help -->
+      <div class="keyboard-help" id="keyboardHelp">
+        Use ← → or swipe to navigate
+      </div>
 
-    <!-- Keyboard help -->
-    <div class="keyboard-help" id="keyboardHelp">Use ← → or swipe to navigate</div>
+      <!-- Toast notification -->
+      <div id="toast" class="toast" aria-live="polite"></div>
 
-    <!-- Toast notification -->
-    <div id="toast" class="toast" aria-live="polite"></div>
+      <!-- Navigation dots (generated dynamically by JS) -->
+      <div class="nav-dots" role="tablist" aria-label="Slide navigation"></div>
 
-    <!-- Navigation dots (generated dynamically by JS) -->
-    <div class="nav-dots" role="tablist" aria-label="Slide navigation"></div>
+      <!-- Back to Top Button -->
+      <button class="back-to-top" id="backToTop" title="Back to Top">⬆️</button>
+    </div>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" title="Back to Top">⬆️</button>
-  </div>
+    <main class="content-wrapper">
+      <!-- Slide 1: HTML -->
+      <section class="slide-card" data-index="0">
+        <div class="slide-content">
+          <div class="slide-header">
+            <span class="slide-icon">📝</span>
+            <h1 class="slide-title typewriter">
+              Master HTML Structure the Web
+            </h1>
+          </div>
 
-  <main class="content-wrapper">
+          <div class="slide-body">
+            <h2 class="slide-subtitle">Foundations of Every Web Page</h2>
+            <p class="slide-text">
+              HTML provides the skeleton of web pages. Use clear, semantic tags
+              to express meaning headings, paragraphs, lists, links, images, and
+              forms give structure that both users and machines understand.
+            </p>
+            <p class="slide-text">
+              Semantic HTML improves accessibility and SEO. Screen readers,
+              search engines, and assistive technologies rely on good markup to
+              deliver content correctly.
+            </p>
+            <p class="slide-text">
+              Practice by building simple pages and progressively enhance them
+              with CSS for layout and JavaScript for interactivity.
+            </p>
 
-    <!-- Slide 1: HTML -->
-    <section class="slide-card" data-index="0">
-      <div class="slide-content">
-        <div class="slide-header">
-          <span class="slide-icon">📝</span>
-          <h1 class="slide-title typewriter">Master HTML Structure the Web</h1>
-        </div>
-
-        <div class="slide-body">
-          <h2 class="slide-subtitle">Foundations of Every Web Page</h2>
-          <p class="slide-text">HTML provides the skeleton of web pages. Use clear, semantic tags to express meaning
-            headings, paragraphs, lists, links, images, and forms give structure that both users and machines
-            understand.</p>
-          <p class="slide-text">Semantic HTML improves accessibility and SEO. Screen readers, search engines, and
-            assistive technologies rely on good markup to deliver content correctly.</p>
-          <p class="slide-text">Practice by building simple pages and progressively enhance them with CSS for layout
-            and JavaScript for interactivity.</p>
-
-          <div class="code-example">
-            <pre><code>&lt;!DOCTYPE html&gt;
+            <div class="code-example">
+              <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;My First Page&lt;/title&gt;
@@ -80,34 +103,45 @@
     &lt;p&gt;Welcome to HTML&lt;/p&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="slide-actions">
+            <button class="btn btn-primary" data-action="next">Next →</button>
           </div>
         </div>
+      </section>
 
-        <div class="slide-actions">
-          <button class="btn btn-primary" data-action="next">Next →</button>
-        </div>
-      </div>
-    </section>
+      <!-- Slide 2: CSS -->
+      <section class="slide-card" data-index="1">
+        <div class="slide-content">
+          <div class="slide-header">
+            <span class="slide-icon">🎨</span>
+            <h1 class="slide-title typewriter">
+              CSS Design Beautiful Interfaces
+            </h1>
+          </div>
 
-    <!-- Slide 2: CSS -->
-    <section class="slide-card" data-index="1">
-      <div class="slide-content">
-        <div class="slide-header">
-          <span class="slide-icon">🎨</span>
-          <h1 class="slide-title typewriter">CSS Design Beautiful Interfaces</h1>
-        </div>
+          <div class="slide-body">
+            <h2 class="slide-subtitle">Style, Layout, and Responsive Design</h2>
+            <p class="slide-text">
+              CSS controls the look and layout of pages: colors, spacing,
+              typography, and responsive rules. Use selectors, the cascade, and
+              specificity to keep styles predictable and maintainable.
+            </p>
+            <p class="slide-text">
+              Master layout systems like Flexbox and Grid, and learn to use
+              media queries and relative units so designs adapt across devices
+              and screen sizes.
+            </p>
+            <p class="slide-text">
+              Organize styles with variables, reusable classes, or
+              component-based approaches to maintain consistency in larger
+              projects.
+            </p>
 
-        <div class="slide-body">
-          <h2 class="slide-subtitle">Style, Layout, and Responsive Design</h2>
-          <p class="slide-text">CSS controls the look and layout of pages: colors, spacing, typography, and responsive
-            rules. Use selectors, the cascade, and specificity to keep styles predictable and maintainable.</p>
-          <p class="slide-text">Master layout systems like Flexbox and Grid, and learn to use media queries and relative
-            units so designs adapt across devices and screen sizes.</p>
-          <p class="slide-text">Organize styles with variables, reusable classes, or component-based approaches to
-            maintain consistency in larger projects.</p>
-
-          <div class="code-example">
-            <pre><code>.container {
+            <div class="code-example">
+              <pre><code>.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,38 +153,46 @@
     flex-direction: column;
   }
 }</code></pre>
+            </div>
+          </div>
+
+          <div class="slide-actions">
+            <button class="btn btn-secondary" data-action="prev">← Prev</button>
+            <button class="btn btn-primary" data-action="next">Next →</button>
           </div>
         </div>
+      </section>
 
-        <div class="slide-actions">
-          <button class="btn btn-secondary" data-action="prev">← Prev</button>
-          <button class="btn btn-primary" data-action="next">Next →</button>
-        </div>
-      </div>
-    </section>
+      <!-- Slide 3: JavaScript -->
+      <section class="slide-card" data-index="2">
+        <div class="slide-content">
+          <div class="slide-header">
+            <span class="slide-icon">⚡</span>
+            <h1 class="slide-title typewriter">
+              JavaScript Powers Interactivity
+            </h1>
+          </div>
 
-    <!-- Slide 3: JavaScript -->
-    <section class="slide-card" data-index="2">
-      <div class="slide-content">
-        <div class="slide-header">
-          <span class="slide-icon">⚡</span>
-          <h1 class="slide-title typewriter">JavaScript Powers Interactivity</h1>
-        </div>
+          <div class="slide-body">
+            <h2 class="slide-subtitle">Add Logic and Behavior</h2>
+            <p class="slide-text">
+              JavaScript is the dynamic programming language that makes webpages
+              interactive, responsive, and truly alive. It empowers you to add
+              behavior and functionality to HTML elements with ease and
+              precision.
+            </p>
+            <p class="slide-text">
+              With JavaScript you can create games, validate forms, craft smooth
+              animations, and build full web applications. Learn core concepts
+              like variables, functions, events, and asynchronous code.
+            </p>
+            <p class="slide-text">
+              Start small: manipulate the DOM, fetch data from APIs, and
+              progressively enhance features as you gain confidence.
+            </p>
 
-        <div class="slide-body">
-          <h2 class="slide-subtitle">Add Logic and Behavior</h2>
-          <p class="slide-text">JavaScript is the dynamic programming language that makes webpages interactive,
-            responsive, and truly alive. It empowers you to add behavior and functionality to HTML elements with ease
-            and precision.</p>
-          <p class="slide-text">With JavaScript you can create games, validate forms, craft smooth animations, and
-            build full web applications. Learn core concepts like variables, functions, events, and asynchronous code.
-          </p>
-          <p class="slide-text">Start small: manipulate the DOM, fetch data from APIs, and progressively enhance
-            features as
-            you gain confidence.</p>
-
-          <div class="code-example">
-            <pre><code>// Event handling
+            <div class="code-example">
+              <pre><code>// Event handling
 document.addEventListener('click', (e) => {
   console.log('Clicked!', e.target);
 });
@@ -160,33 +202,39 @@ const btn = document.getElementById('myBtn');
 btn.addEventListener('click', () => {
   btn.style.background = 'blue';
 });</code></pre>
+            </div>
+          </div>
+
+          <div class="slide-actions">
+            <button class="btn btn-secondary" data-action="prev">← Prev</button>
+            <button class="btn btn-primary" data-action="next">Next →</button>
           </div>
         </div>
+      </section>
 
-        <div class="slide-actions">
-          <button class="btn btn-secondary" data-action="prev">← Prev</button>
-          <button class="btn btn-primary" data-action="next">Next →</button>
-        </div>
-      </div>
-    </section>
+      <!-- Slide 4: React.js -->
+      <section class="slide-card" data-index="3">
+        <div class="slide-content">
+          <div class="slide-header">
+            <span class="slide-icon">⚛️</span>
+            <h1 class="slide-title typewriter">React.js Makes UI Super Fast</h1>
+          </div>
 
-    <!-- Slide 4: React.js -->
-    <section class="slide-card" data-index="3">
-      <div class="slide-content">
-        <div class="slide-header">
-          <span class="slide-icon">⚛️</span>
-          <h1 class="slide-title typewriter">React.js Makes UI Super Fast</h1>
-        </div>
+          <div class="slide-body">
+            <h2 class="slide-subtitle">Component-Based Interfaces</h2>
+            <p class="slide-text">
+              React helps build reusable UI components and manage state
+              efficiently with a virtual DOM. Use components to split UI into
+              independent, reusable pieces that are easy to reason about.
+            </p>
+            <p class="slide-text">
+              Learn JSX syntax, props, and state. Practice hooks like useState
+              and useEffect to handle stateful logic and side effects in modern
+              React apps.
+            </p>
 
-        <div class="slide-body">
-          <h2 class="slide-subtitle">Component-Based Interfaces</h2>
-          <p class="slide-text">React helps build reusable UI components and manage state efficiently with a virtual
-            DOM. Use components to split UI into independent, reusable pieces that are easy to reason about.</p>
-          <p class="slide-text">Learn JSX syntax, props, and state. Practice hooks like useState and useEffect to
-            handle stateful logic and side effects in modern React apps.</p>
-
-          <div class="code-example">
-            <pre><code>function Counter() {
+            <div class="code-example">
+              <pre><code>function Counter() {
   const [count, setCount] = useState(0);
   
   return (
@@ -198,33 +246,40 @@ btn.addEventListener('click', () => {
     &lt;/div&gt;
   );
 }</code></pre>
+            </div>
+          </div>
+
+          <div class="slide-actions">
+            <button class="btn btn-secondary" data-action="prev">← Prev</button>
+            <button class="btn btn-primary" data-action="next">Next →</button>
           </div>
         </div>
+      </section>
 
-        <div class="slide-actions">
-          <button class="btn btn-secondary" data-action="prev">← Prev</button>
-          <button class="btn btn-primary" data-action="next">Next →</button>
-        </div>
-      </div>
-    </section>
+      <!-- Slide 5: TailwindCSS -->
+      <section class="slide-card" data-index="4">
+        <div class="slide-content">
+          <div class="slide-header">
+            <span class="slide-icon">🎨</span>
+            <h1 class="slide-title typewriter">
+              TailwindCSS Utility First Styling
+            </h1>
+          </div>
 
-    <!-- Slide 5: TailwindCSS -->
-    <section class="slide-card" data-index="4">
-      <div class="slide-content">
-        <div class="slide-header">
-          <span class="slide-icon">🎨</span>
-          <h1 class="slide-title typewriter">TailwindCSS Utility First Styling</h1>
-        </div>
+          <div class="slide-body">
+            <h2 class="slide-subtitle">Rapid UI Development</h2>
+            <p class="slide-text">
+              Tailwind provides a utility first approach that lets you style
+              directly in HTML with small, composable classes. This speeds up
+              prototyping and keeps classes consistent across a project.
+            </p>
+            <p class="slide-text">
+              Customize Tailwind's configuration to create design tokens and
+              scale a consistent visual language across your applications.
+            </p>
 
-        <div class="slide-body">
-          <h2 class="slide-subtitle">Rapid UI Development</h2>
-          <p class="slide-text">Tailwind provides a utility first approach that lets you style directly in HTML with
-            small, composable classes. This speeds up prototyping and keeps classes consistent across a project.</p>
-          <p class="slide-text">Customize Tailwind's configuration to create design tokens and scale a consistent visual
-            language across your applications.</p>
-
-          <div class="code-example">
-            <pre><code>&lt;div class="flex items-center justify-center 
+            <div class="code-example">
+              <pre><code>&lt;div class="flex items-center justify-center 
            gap-4 p-6 bg-blue-500 rounded-lg"&gt;
   &lt;h1 class="text-2xl font-bold text-white"&gt;
     Hello
@@ -234,33 +289,40 @@ btn.addEventListener('click', () => {
     Click me
   &lt;/button&gt;
 &lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="slide-actions">
+            <button class="btn btn-secondary" data-action="prev">← Prev</button>
+            <button class="btn btn-primary" data-action="next">Next →</button>
           </div>
         </div>
+      </section>
 
-        <div class="slide-actions">
-          <button class="btn btn-secondary" data-action="prev">← Prev</button>
-          <button class="btn btn-primary" data-action="next">Next →</button>
-        </div>
-      </div>
-    </section>
+      <!-- Slide 6: Bootstrap -->
+      <section class="slide-card" data-index="5">
+        <div class="slide-content">
+          <div class="slide-header">
+            <span class="slide-icon">📦</span>
+            <h1 class="slide-title typewriter">
+              Bootstrap Speeds Up Development
+            </h1>
+          </div>
 
-    <!-- Slide 6: Bootstrap -->
-    <section class="slide-card" data-index="5">
-      <div class="slide-content">
-        <div class="slide-header">
-          <span class="slide-icon">📦</span>
-          <h1 class="slide-title typewriter">Bootstrap Speeds Up Development</h1>
-        </div>
+          <div class="slide-body">
+            <h2 class="slide-subtitle">Prebuilt Components & Grid</h2>
+            <p class="slide-text">
+              Bootstrap provides a responsive grid, prebuilt components, and
+              utility classes that help you build interfaces quickly and
+              consistently across browsers and devices.
+            </p>
+            <p class="slide-text">
+              Use its theming and customization options to match your project's
+              visual style while keeping development speed high.
+            </p>
 
-        <div class="slide-body">
-          <h2 class="slide-subtitle">Prebuilt Components & Grid</h2>
-          <p class="slide-text">Bootstrap provides a responsive grid, prebuilt components, and utility classes that help
-            you build interfaces quickly and consistently across browsers and devices.</p>
-          <p class="slide-text">Use its theming and customization options to match your project's visual style while
-            keeping development speed high.</p>
-
-          <div class="code-example">
-            <pre><code>&lt;link rel="stylesheet" 
+            <div class="code-example">
+              <pre><code>&lt;link rel="stylesheet" 
   href="bootstrap.min.css"&gt;
 
 &lt;div class="container"&gt;
@@ -272,33 +334,39 @@ btn.addEventListener('click', () => {
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="slide-actions">
+            <button class="btn btn-secondary" data-action="prev">← Prev</button>
+            <button class="btn btn-primary" data-action="next">Next →</button>
           </div>
         </div>
+      </section>
 
-        <div class="slide-actions">
-          <button class="btn btn-secondary" data-action="prev">← Prev</button>
-          <button class="btn btn-primary" data-action="next">Next →</button>
-        </div>
-      </div>
-    </section>
+      <!-- Slide 7: MongoDB -->
+      <section class="slide-card" data-index="6">
+        <div class="slide-content">
+          <div class="slide-header">
+            <span class="slide-icon">🍃</span>
+            <h1 class="slide-title typewriter">MongoDB Stores Data Smarter</h1>
+          </div>
 
-    <!-- Slide 7: MongoDB -->
-    <section class="slide-card" data-index="6">
-      <div class="slide-content">
-        <div class="slide-header">
-          <span class="slide-icon">🍃</span>
-          <h1 class="slide-title typewriter">MongoDB Stores Data Smarter</h1>
-        </div>
+          <div class="slide-body">
+            <h2 class="slide-subtitle">NoSQL for Scalable Apps</h2>
+            <p class="slide-text">
+              MongoDB stores flexible JSON like documents and pairs well with
+              Node.js backends and modern web services. Its schemaless model is
+              ideal for evolving data shapes.
+            </p>
+            <p class="slide-text">
+              Learn CRUD operations, indexing, and aggregation pipelines.
+              Consider using MongoDB Atlas for managed hosting and to simplify
+              deployment and scaling.
+            </p>
 
-        <div class="slide-body">
-          <h2 class="slide-subtitle">NoSQL for Scalable Apps</h2>
-          <p class="slide-text">MongoDB stores flexible JSON like documents and pairs well with Node.js backends and
-            modern web services. Its schemaless model is ideal for evolving data shapes.</p>
-          <p class="slide-text">Learn CRUD operations, indexing, and aggregation pipelines. Consider using MongoDB Atlas
-            for managed hosting and to simplify deployment and scaling.</p>
-
-          <div class="code-example">
-            <pre><code>// Connect to MongoDB
+            <div class="code-example">
+              <pre><code>// Connect to MongoDB
 const client = new MongoClient(uri);
 
 // Insert document
@@ -312,104 +380,133 @@ db.users.insertOne({
 const users = db.users.find(
   { role: "developer" }
 );</code></pre>
+            </div>
+          </div>
+
+          <div class="slide-actions">
+            <button class="btn btn-secondary" data-action="prev">← Prev</button>
+            <button class="btn btn-primary" data-action="next">Next →</button>
           </div>
         </div>
+      </section>
 
-        <div class="slide-actions">
-          <button class="btn btn-secondary" data-action="prev">← Prev</button>
-          <button class="btn btn-primary" data-action="next">Next →</button>
-        </div>
-      </div>
-    </section>
+      <!-- Slide 8: Certificate -->
+      <section class="slide-card" data-index="7">
+        <div class="slide-content">
+          <div class="slide-header">
+            <span class="slide-icon">🎓</span>
+            <h1 class="slide-title typewriter">Get Your Certificate!</h1>
+          </div>
 
-    <!-- Slide 8: Certificate -->
-    <section class="slide-card" data-index="7">
-      <div class="slide-content">
-        <div class="slide-header">
-          <span class="slide-icon">🎓</span>
-          <h1 class="slide-title typewriter">Get Your Certificate!</h1>
-        </div>
+          <div class="slide-body">
+            <h2 class="slide-subtitle">
+              Congratulations! You've Mastered the Essentials
+            </h2>
+            <p class="slide-text">
+              You've successfully completed this comprehensive web development
+              course! You now understand the fundamentals of HTML, CSS,
+              JavaScript, and modern frameworks.
+            </p>
+            <p class="slide-text">
+              Generate your certificate to showcase your achievement. Enter your
+              name and download your personalized certificate.
+            </p>
 
-        <div class="slide-body">
-          <h2 class="slide-subtitle">Congratulations! You've Mastered the Essentials</h2>
-          <p class="slide-text">You've successfully completed this comprehensive web development course! You now
-            understand the fundamentals of HTML, CSS, JavaScript, and modern frameworks.</p>
-          <p class="slide-text">Generate your certificate to showcase your achievement. Enter your name and download
-            your personalized certificate.</p>
+            <div class="certificate-form">
+              <input
+                type="text"
+                id="certificateName"
+                placeholder="Enter your full name"
+                class="cert-input" />
+              <button class="btn btn-primary" id="generateCert">
+                Generate Certificate 📜
+              </button>
+            </div>
+          </div>
 
-          <div class="certificate-form">
-            <input type="text" id="certificateName" placeholder="Enter your full name" class="cert-input">
-            <button class="btn btn-primary" id="generateCert">Generate Certificate 📜</button>
+          <div class="slide-actions">
+            <button class="btn btn-secondary" data-action="prev">← Prev</button>
+            <button class="btn btn-primary" data-action="next">Next →</button>
           </div>
         </div>
+      </section>
 
-        <div class="slide-actions">
-          <button class="btn btn-secondary" data-action="prev">← Prev</button>
-          <button class="btn btn-primary" data-action="next">Next →</button>
+      <!-- Slide 9: Final / Congrats -->
+      <section class="slide-card" data-index="8">
+        <div class="slide-content">
+          <div class="slide-header">
+            <span class="slide-icon">🚀</span>
+            <h1 class="slide-title typewriter">You're Ready to Launch!</h1>
+          </div>
+
+          <div class="slide-body">
+            <h2 class="slide-subtitle">
+              Congratulations on Mastering the Core Concepts!
+            </h2>
+            <p class="slide-text">
+              You've covered HTML, CSS, JavaScript, and modern tooling the
+              essential building blocks of modern web applications. Keep
+              practising by building small, focused projects.
+            </p>
+            <p class="slide-text">
+              Start a portfolio, create a todo app, or clone a simple website to
+              apply what you've learned. Publishing projects helps cement
+              knowledge and shows your work to others.
+            </p>
+            <p class="slide-text">
+              Stay curious, read documentation, and join communities continuous
+              learning accelerates growth. Happy coding!
+            </p>
+          </div>
+
+          <div class="slide-actions">
+            <button class="btn btn-secondary" data-action="prev">← Prev</button>
+            <button class="btn btn-primary active-glow" data-action="first">
+              Restart Course
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Slide 9: Final / Congrats -->
-    <section class="slide-card" data-index="8">
-      <div class="slide-content">
-        <div class="slide-header">
-          <span class="slide-icon">🚀</span>
-          <h1 class="slide-title typewriter">You're Ready to Launch!</h1>
-        </div>
-
-        <div class="slide-body">
-          <h2 class="slide-subtitle">Congratulations on Mastering the Core Concepts!</h2>
-          <p class="slide-text">You've covered HTML, CSS, JavaScript, and modern tooling the essential building
-            blocks of modern web applications. Keep practising by building small, focused projects.</p>
-          <p class="slide-text">Start a portfolio, create a todo app, or clone a simple website to apply what you've
-            learned. Publishing projects helps cement knowledge and shows your work to others.</p>
-          <p class="slide-text">Stay curious, read documentation, and join communities continuous learning accelerates
-            growth. Happy coding!</p>
-        </div>
-
-        <div class="slide-actions">
-          <button class="btn btn-secondary" data-action="prev">← Prev</button>
-          <button class="btn btn-primary active-glow" data-action="first">Restart Course</button>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Certificate Modal -->
-  <div id="certificateModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <canvas id="certificateCanvas"></canvas>
-      <button class="btn btn-primary" id="downloadCert">Download Certificate ⬇️</button>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>💡 Made by Redwan Hossain</h3>
-        <p>Web Development Learning Hub</p>
-      </div>
-      <div class="footer-section">
-        <h4>Follow Me</h4>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/" target="_blank"> <i class="fa-brands fa-facebook-f"></i> </a>
-          <a href="" target="_blank"> <i class="fa-brands fa-instagram"></i> </a>
-          <a href="https://www.youtube.com/" target="_blank"> <i class="fa-brands fa-youtube"></i> </a>
-
-        </div>
-      </div>
-      <div class="footer-section">
-        <p>&copy; 2025 All Rights Reserved.</p>
-        <p class="footer-small">Built with ❤️ using HTML, CSS & JavaScript</p>
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <canvas id="certificateCanvas"></canvas>
+        <button class="btn btn-primary" id="downloadCert">
+          Download Certificate ⬇️
+        </button>
       </div>
     </div>
-  </footer>
 
-</body>
-<script src="../js/animate.js"></script>
-
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>💡 Made by Redwan Hossain</h3>
+          <p>Web Development Learning Hub</p>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Me</h4>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <p>&copy; 2025 All Rights Reserved.</p>
+          <p class="footer-small">Built with ❤️ using HTML, CSS & JavaScript</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../js/animate.js"></script>
 </html>

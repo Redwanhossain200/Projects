@@ -28,9 +28,12 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background-image: radial-gradient(circle, rgba(255, 0, 255, 0.18) 2px, transparent 3px),
+  background-image:
+    radial-gradient(circle, rgba(255, 0, 255, 0.18) 2px, transparent 3px),
     radial-gradient(circle, rgba(255, 200, 0, 0.15) 2px, transparent 3px);
-  background-size: 120px 120px, 160px 160px;
+  background-size:
+    120px 120px,
+    160px 160px;
   animation: float 12s linear infinite;
   opacity: 0.45;
 }
@@ -58,7 +61,7 @@ body::before {
   background: rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 1000;
-  transition: .4s ease;
+  transition: 0.4s ease;
 }
 
 .header.scrolled {
@@ -72,13 +75,17 @@ body::before {
   height: 70px;
   border-radius: 50%;
   border: 2px solid #bf00ff;
-  box-shadow: 0 0 15px #ff00ff, 0 0 30px #ffb400;
-  transition: .3s ease;
+  box-shadow:
+    0 0 15px #ff00ff,
+    0 0 30px #ffb400;
+  transition: 0.3s ease;
 }
 
 .image:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 20px #ff00ff, 0 0 45px #ffb400;
+  box-shadow:
+    0 0 20px #ff00ff,
+    0 0 45px #ffb400;
 }
 
 /* NAVBAR */
@@ -88,7 +95,7 @@ body::before {
   margin-left: 2rem;
   font-size: 1.1rem;
   position: relative;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .navbar a:hover {
@@ -104,7 +111,7 @@ body::before {
   height: 2px;
   border-radius: 50px;
   background: linear-gradient(90deg, #ff00ff, #ffb400);
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .navbar a:hover::after {
@@ -148,7 +155,7 @@ body::before {
   color: white;
   font-weight: 600;
   text-decoration: none;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .btn:hover {
@@ -181,7 +188,9 @@ body::before {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  transition: transform .45s cubic-bezier(.22, .61, .36, 1), box-shadow .45s;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.45s;
   position: relative;
 }
 
@@ -194,12 +203,12 @@ body::before {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(.75);
-  transition: .3s;
+  filter: brightness(0.75);
+  transition: 0.3s;
 }
 
 .cat-card:hover img {
-  filter: brightness(.9) saturate(120%);
+  filter: brightness(0.9) saturate(120%);
   transform: scale(1.08);
 }
 
@@ -225,7 +234,9 @@ body::before {
   border-radius: 20px;
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: transform .4s cubic-bezier(.22, .61, .36, 1), box-shadow .45s;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.45s;
 }
 
 .product-card:hover {
@@ -243,7 +254,7 @@ body::before {
 .price {
   color: #ffb400;
   font-weight: 600;
-  margin: .6rem 0;
+  margin: 0.6rem 0;
 }
 
 .add-cart {
@@ -255,7 +266,7 @@ body::before {
   color: white;
   cursor: pointer;
   font-weight: 600;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .add-cart:hover {

@@ -2,26 +2,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
-  background-color: #FFFEFA;
+  background-color: #fffefa;
 }
 
 /* common class */
 .btn {
-  background-color: #872BFF;
+  background-color: #872bff;
   padding: 14px 30px;
   border: none;
   border-radius: 30px;
   font-size: 14px;
   font-weight: bold;
   color: white;
-  box-shadow: 0 11px 31px 0 #8C8C8C;
+  box-shadow: 0 11px 31px 0 #8c8c8c;
   cursor: pointer;
   margin-right: 20px;
-  border: 2px solid #872BFF;
+  border: 2px solid #872bff;
   transition: all 0.3s ease-in-out;
 }
 
@@ -32,18 +32,18 @@ body {
 }
 
 .btn-white:hover {
-  background-color: #872BFF;
+  background-color: #872bff;
   color: white;
   border: none;
   /* border: 2px solid #872BFF; */
 }
 
 .btn-white {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 14px 30px;
   /* border: 2px #872BFF solid; */
   border-radius: 30px;
-  box-shadow: 0 0 20px 2px #872BFF60;
+  box-shadow: 0 0 20px 2px #872bff60;
   font-size: 14px;
   font-weight: bold;
   color: black;
@@ -65,7 +65,7 @@ body {
   font-size: 22px;
   text-transform: uppercase;
   letter-spacing: 4px;
-  color: #6A14DA;
+  color: #6a14da;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -82,7 +82,7 @@ body {
 }
 
 .card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   /* border: 1px solid red; */
   padding: 40px;
   text-align: center;
@@ -102,7 +102,7 @@ body {
 
 .card p {
   font-size: 16px;
-  color: #0D1321;
+  color: #0d1321;
 }
 
 .card a {
@@ -113,8 +113,8 @@ body {
 .project-card {
   padding: 48px;
   margin-bottom: 30px;
-  background-color: #FFFFFF;
-  border: 2px solid #872BFF;
+  background-color: #ffffff;
+  border: 2px solid #872bff;
   border-radius: 20px;
   display: flex;
   gap: 20px;
@@ -131,7 +131,7 @@ body {
 }
 
 .project-content p {
-  color: #0E0E0E70;
+  color: #0e0e0e70;
 }
 
 .project-content * {
@@ -171,7 +171,7 @@ body {
 }
 
 #hero-content h1 span {
-  color: #872BFF;
+  color: #872bff;
   font-size: 30px;
   font-style: italic;
   font-weight: 300;
@@ -179,7 +179,7 @@ body {
 
 #hero-content p {
   font-size: 16px;
-  color: #8A8A8A;
+  color: #8a8a8a;
   font-weight: 500;
   line-height: 26px;
   margin-bottom: 30px;
